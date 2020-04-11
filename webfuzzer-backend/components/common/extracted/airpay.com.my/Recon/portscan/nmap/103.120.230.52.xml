@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.70 scan initiated Tue Sep  3 02:13:59 2019 as: nmap -sC -sSV -p 80,443 -v -A -&#45;open -Pn -n -T4 -oA /root/BugBounty/Domains/airpay.com.my/Recon/portscan/nmap/103.120.230.52 103.120.230.52 -->
+<nmaprun scanner="nmap" args="nmap -sC -sSV -p 80,443 -v -A -&#45;open -Pn -n -T4 -oA /root/BugBounty/Domains/airpay.com.my/Recon/portscan/nmap/103.120.230.52 103.120.230.52" start="1567476839" startstr="Tue Sep  3 02:13:59 2019" version="7.70" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="2" services="80,443"/>
+<verbose level="1"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1567476840"/>
+<taskend task="NSE" time="1567476840"/>
+<taskbegin task="NSE" time="1567476840"/>
+<taskend task="NSE" time="1567476840"/>
+<taskbegin task="SYN Stealth Scan" time="1567476840"/>
+<taskend task="SYN Stealth Scan" time="1567476840" extrainfo="2 total ports"/>
+<taskbegin task="Service scan" time="1567476840"/>
+<taskend task="Service scan" time="1567476858" extrainfo="2 services on 1 host"/>
+<taskbegin task="Traceroute" time="1567476859"/>
+<taskend task="Traceroute" time="1567476862"/>
+<taskbegin task="NSE" time="1567476862"/>
+<taskend task="NSE" time="1567476863"/>
+<taskbegin task="NSE" time="1567476863"/>
+<taskend task="NSE" time="1567476863"/>
+<host starttime="1567476840" endtime="1567476863"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="103.120.230.52" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="45"/><service name="http" product="nginx" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-methods" output="&#xa;  Supported Methods: GET HEAD POST OPTIONS"><table key="Supported Methods">
+<elem>GET</elem>
+<elem>HEAD</elem>
+<elem>POST</elem>
+<elem>OPTIONS</elem>
+</table>
+</script><script id="http-server-header" output="SGW"><elem>SGW</elem>
+</script><script id="http-title" output="Did not follow redirect to https://shopee.com/"><elem key="redirect_url">https://shopee.com/</elem>
+</script></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="50"/><service name="http" product="nginx" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-methods" output="&#xa;  Supported Methods: GET HEAD POST OPTIONS"><table key="Supported Methods">
+<elem>GET</elem>
+<elem>HEAD</elem>
+<elem>POST</elem>
+<elem>OPTIONS</elem>
+</table>
+</script><script id="http-server-header" output="SGW"><elem>SGW</elem>
+</script><script id="http-title" output="Did not follow redirect to https://shopee.com/"><elem key="redirect_url">https://shopee.com/</elem>
+</script><script id="ssl-cert" output="Subject: commonName=*.ads.shopee.io&#xa;Subject Alternative Name: DNS:*.ads.shopee.io, DNS:*.api.fds.deep.shopeemobile.com, DNS:*.db.cmdb.shopeemobile.com, DNS:*.deep.shopeemobile.com, DNS:*.ds.shopee.io, DNS:*.rcmd.shopee.io, DNS:*.saops.shopeemobile.com, DNS:*.shopee.io, DNS:*.shopeemobile.com, DNS:*.ssc.shopeemobile.com, DNS:*.sz.shopee.io, DNS:api.fds.deep.shopeemobile.com, DNS:db.cmdb.shopeemobile.com, DNS:shopee.io, DNS:shopeemobile.com&#xa;Issuer: commonName=Let&apos;s Encrypt Authority X3/organizationName=Let&apos;s Encrypt/countryName=US&#xa;Public Key type: rsa&#xa;Public Key bits: 2048&#xa;Signature Algorithm: sha256WithRSAEncryption&#xa;Not valid before: 2019-08-26T01:01:01&#xa;Not valid after:  2019-11-24T01:01:01&#xa;MD5:   a272 c627 5fdf e65d 2aad 50c7 a8b6 e3e0&#xa;SHA-1: eefb 0f7c ac2f 020e 7bb4 8dd2 797a fdc9 2d14 5c84"><table key="subject">
+<elem key="commonName">*.ads.shopee.io</elem>
+</table>
+<table key="issuer">
+<elem key="countryName">US</elem>
+<elem key="organizationName">Let&apos;s Encrypt</elem>
+<elem key="commonName">Let&apos;s Encrypt Authority X3</elem>
+</table>
+<table key="pubkey">
+<elem key="modulus">userdata: 0x55eeb6dfbee8</elem>
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="exponent">userdata: 0x55eeb6fc9c18</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="critical">true</elem>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Server Authentication, TLS Web Client Authentication</elem>
+</table>
+<table>
+<elem key="critical">true</elem>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:FALSE</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">02:B6:4C:DE:79:DE:EB:0F:1B:AA:3A:94:CE:FF:91:9C:C1:26:1D:18</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">keyid:A8:4A:6A:63:04:7D:DD:BA:E6:D1:39:B7:A6:45:65:EF:F3:A8:EC:A1&#xa;</elem>
+</table>
+<table>
+<elem key="name">Authority Information Access</elem>
+<elem key="value">OCSP - URI:http://ocsp.int-x3.letsencrypt.org&#xa;CA Issuers - URI:http://cert.int-x3.letsencrypt.org/&#xa;</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:*.ads.shopee.io, DNS:*.api.fds.deep.shopeemobile.com, DNS:*.db.cmdb.shopeemobile.com, DNS:*.deep.shopeemobile.com, DNS:*.ds.shopee.io, DNS:*.rcmd.shopee.io, DNS:*.saops.shopeemobile.com, DNS:*.shopee.io, DNS:*.shopeemobile.com, DNS:*.ssc.shopeemobile.com, DNS:*.sz.shopee.io, DNS:api.fds.deep.shopeemobile.com, DNS:db.cmdb.shopeemobile.com, DNS:shopee.io, DNS:shopeemobile.com</elem>
+</table>
+<table>
+<elem key="name">X509v3 Certificate Policies</elem>
+<elem key="value">Policy: 2.23.140.1.2.1&#xa;Policy: 1.3.6.1.4.1.44947.1.1.1&#xa;  CPS: http://cps.letsencrypt.org&#xa;</elem>
+</table>
+<table>
+<elem key="name">CT Precertificate SCTs</elem>
+<elem key="value">Signed Certificate Timestamp:&#xa;    Version   : v1 (0x0)&#xa;    Log ID    : E2:69:4B:AE:26:E8:E9:40:09:E8:86:1B:B6:3B:83:D4:&#xa;                3E:E7:FE:74:88:FB:A4:8F:28:93:01:9D:DD:F1:DB:FE&#xa;    Timestamp : Aug 26 02:01:01.493 2019 GMT&#xa;    Extensions: none&#xa;    Signature : ecdsa-with-SHA256&#xa;                30:44:02:20:77:E4:95:D5:00:D7:5C:8F:E6:DA:50:4C:&#xa;                4A:B8:77:01:09:39:DE:38:BF:46:9A:59:47:1E:7C:66:&#xa;                34:69:B8:47:02:20:1F:0A:02:71:9B:A1:4B:FB:F7:CC:&#xa;                C9:05:09:D4:A1:55:DC:C5:4F:88:91:9D:94:FC:C2:AD:&#xa;                9F:C2:EB:69:66:16&#xa;Signed Certificate Timestamp:&#xa;    Version   : v1 (0x0)&#xa;    Log ID    : 29:3C:51:96:54:C8:39:65:BA:AA:50:FC:58:07:D4:B7:&#xa;                6F:BF:58:7A:29:72:DC:A4:C3:0C:F4:E5:45:47:F4:78&#xa;    Timestamp : Aug 26 02:01:01.526 2019 GMT&#xa;    Extensions: none&#xa;    Signature : ecdsa-with-SHA256&#xa;                30:46:02:21:00:D9:3A:DB:7B:0B:F9:77:CF:35:7E:E5:&#xa;                A3:57:1C:9A:91:AC:57:CA:37:B8:C8:FE:7D:CD:56:0A:&#xa;                BA:F8:9E:86:1A:02:21:00:C4:8A:99:D0:5E:45:74:B7:&#xa;                04:37:BB:DC:BD:6A:B9:8F:BF:9A:F8:86:1D:12:7E:36:&#xa;                FA:0A:0D:30:A0:60:27:B7</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2019-08-26T01:01:01</elem>
+<elem key="notAfter">2019-11-24T01:01:01</elem>
+</table>
+<elem key="md5">a272c6275fdfe65d2aad50c7a8b6e3e0</elem>
+<elem key="sha1">eefb0f7cac2f020e7bb48dd2797afdc92d145c84</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIGjTCCBXWgAwIBAgISA0JRE8iVAeYINwxUnHTHFYOlMA0GCSqGSIb3DQEBCwUA&#xa;MEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD&#xa;ExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0xOTA4MjYwMTAxMDFaFw0x&#xa;OTExMjQwMTAxMDFaMBoxGDAWBgNVBAMMDyouYWRzLnNob3BlZS5pbzCCASIwDQYJ&#xa;KoZIhvcNAQEBBQADggEPADCCAQoCggEBAK/hkPlaF5qat87i5QrbiXQut4oT53ZI&#xa;RGTSNlv+PeJPwqqhzZPE4fs7S0Ag8zo+mV63vk4WT8fDg9ISZxG2Rxrq3EnXWVAs&#xa;wu/tqGEsACIvxVtsoko6FFDDDMnGy8VEIMnGyEmGgdm4aN7vbSeSoBhm92L/kwmJ&#xa;6R+LrdTp+O6DSdbIc4DnNWLljdsHFXc6ikV8Ebtc6SmY9QUVE+HXJ6RK9LBK5yUL&#xa;kxqGZ00WIEGtjRNlD0WpdXPVlr/zH/zg1elwsYBF3YP8Ko+0hQV6+TGSUwuEdxRY&#xa;dQWminlN7BESVf7LfWSxPfS52sI5NRGSlWomv2+zzJqk/NYI5LcHGGkCAwEAAaOC&#xa;A5swggOXMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYB&#xa;BQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQUArZM3nne6w8bqjqUzv+RnMEm&#xa;HRgwHwYDVR0jBBgwFoAUqEpqYwR93brm0Tm3pkVl7/Oo7KEwbwYIKwYBBQUHAQEE&#xa;YzBhMC4GCCsGAQUFBzABhiJodHRwOi8vb2NzcC5pbnQteDMubGV0c2VuY3J5cHQu&#xa;b3JnMC8GCCsGAQUFBzAChiNodHRwOi8vY2VydC5pbnQteDMubGV0c2VuY3J5cHQu&#xa;b3JnLzCCAU8GA1UdEQSCAUYwggFCgg8qLmFkcy5zaG9wZWUuaW+CHyouYXBpLmZk&#xa;cy5kZWVwLnNob3BlZW1vYmlsZS5jb22CGiouZGIuY21kYi5zaG9wZWVtb2JpbGUu&#xa;Y29tghcqLmRlZXAuc2hvcGVlbW9iaWxlLmNvbYIOKi5kcy5zaG9wZWUuaW+CECou&#xa;cmNtZC5zaG9wZWUuaW+CGCouc2FvcHMuc2hvcGVlbW9iaWxlLmNvbYILKi5zaG9w&#xa;ZWUuaW+CEiouc2hvcGVlbW9iaWxlLmNvbYIWKi5zc2Muc2hvcGVlbW9iaWxlLmNv&#xa;bYIOKi5zei5zaG9wZWUuaW+CHWFwaS5mZHMuZGVlcC5zaG9wZWVtb2JpbGUuY29t&#xa;ghhkYi5jbWRiLnNob3BlZW1vYmlsZS5jb22CCXNob3BlZS5pb4IQc2hvcGVlbW9i&#xa;aWxlLmNvbTBMBgNVHSAERTBDMAgGBmeBDAECATA3BgsrBgEEAYLfEwEBATAoMCYG&#xa;CCsGAQUFBwIBFhpodHRwOi8vY3BzLmxldHNlbmNyeXB0Lm9yZzCCAQQGCisGAQQB&#xa;1nkCBAIEgfUEgfIA8AB1AOJpS64m6OlACeiGG7Y7g9Q+5/50iPukjyiTAZ3d8dv+&#xa;AAABbMuntTUAAAQDAEYwRAIgd+SV1QDXXI/m2lBMSrh3AQk53ji/RppZRx58ZjRp&#xa;uEcCIB8KAnGboUv798zJBQnUoVXcxU+IkZ2U/MKtn8LraWYWAHcAKTxRllTIOWW6&#xa;qlD8WAfUt2+/WHopctykwwz05UVH9HgAAAFsy6e1VgAABAMASDBGAiEA2Trbewv5&#xa;d881fuWjVxyakaxXyje4yP59zVYKuviehhoCIQDEipnQXkV0twQ3u9y9armPv5r4&#xa;hh0Sfjb6Cg0woGAntzANBgkqhkiG9w0BAQsFAAOCAQEAeqAcJWbRNdk0xlau98vW&#xa;pzjtU5CNj2NFwm0VsAvD6DycZAaaEVtpsVns10oNjZpB0Ej+J9Q+bjZHfH3StTBa&#xa;FRXwVK9/5lELN2NwaYdAqf2/Xn0hmuF6hKBa1Jq88ido8coemSOBLKrNKL/tD1dL&#xa;BBtk7IjuaAL6ShW1X/d60+AL+t1nxhYN3js0ea+J+EFt295RjpUgp6A/teNPy7xf&#xa;QQQrl5sUBVY5bPxMzPTuRmIxcycOeZ4DdPzinDzSmvFvDsPmkMBIqOISc3TdDgBE&#xa;CJb5IP8nQk7p8jlYw7SWU7wv2T1Al1TWJYVSGd+rXj3RUf86SMp9MGMz6Up51Dat&#xa;WQ==&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="tls-alpn" output="&#xa;  h2&#xa;  http/1.1"><elem>h2</elem>
+<elem>http/1.1</elem>
+</script><script id="tls-nextprotoneg" output="&#xa;  h2&#xa;  http/1.1"><elem>h2</elem>
+<elem>http/1.1</elem>
+</script></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="80"/>
+<osmatch name="Linux 4.4" accuracy="100" line="67202">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:4.4</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="757996" lastboot="Sun Aug 25 07:41:07 2019"/>
+<distance value="18"/>
+<tcpsequence index="263" difficulty="Good luck!" values="79A3909D,B8BDAB37,A50EF262,227824DB,F1510DF9,F36C2184"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="1000HZ" values="2D2E06ED,2D2E0751,2D2E07B5,2D2E081A,2D2E087D,2D2E08E2"/>
+<trace port="443" proto="tcp">
+<hop ttl="2" ipaddr="45.32.98.97" rtt="4.58"/>
+<hop ttl="4" ipaddr="27.111.229.2" rtt="1.05"/>
+<hop ttl="7" ipaddr="223.28.26.154" rtt="24.04"/>
+<hop ttl="8" ipaddr="223.28.35.225" rtt="7.69"/>
+<hop ttl="9" ipaddr="223.28.35.245" rtt="9.01"/>
+<hop ttl="10" ipaddr="223.28.35.201" rtt="7.15"/>
+<hop ttl="11" ipaddr="223.28.35.213" rtt="7.11"/>
+<hop ttl="12" ipaddr="223.28.35.209" rtt="7.92"/>
+<hop ttl="13" ipaddr="223.28.35.197" rtt="7.11"/>
+<hop ttl="18" ipaddr="103.120.230.52" rtt="7.06"/>
+</trace>
+<times srtt="7524" rttvar="756" to="100000"/>
+</host>
+<taskbegin task="NSE" time="1567476863"/>
+<taskend task="NSE" time="1567476863"/>
+<taskbegin task="NSE" time="1567476863"/>
+<taskend task="NSE" time="1567476863"/>
+<runstats><finished time="1567476863" timestr="Tue Sep  3 02:14:23 2019" elapsed="24.02" summary="Nmap done at Tue Sep  3 02:14:23 2019; 1 IP address (1 host up) scanned in 24.02 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

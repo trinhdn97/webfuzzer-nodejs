@@ -1,0 +1,16 @@
+admin.staging.wallet.airpay.com.my
+admin.test.wallet.airpay.com.my
+admin.uat.wallet.airpay.com.my
+admin.wallet.airpay.com.my
+capi.staging.wallet.airpay.com.my
+capi.test.wallet.airpay.com.my
+capi.uat.wallet.airpay.com.my
+sapi.staging.wallet.airpay.com.my
+sapi.test.wallet.airpay.com.my
+sapi.uat.wallet.airpay.com.my
+spm.staging.wallet.airpay.com.my
+spm.test.wallet.airpay.com.my
+spm.uat.wallet.airpay.com.my
+staging.wallet.airpay.com.my
+test.wallet.airpay.com.my
+uat.wallet.airpay.com.my

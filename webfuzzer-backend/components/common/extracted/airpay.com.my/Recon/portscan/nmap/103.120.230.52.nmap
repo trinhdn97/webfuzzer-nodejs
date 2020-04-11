@@ -1,0 +1,62 @@
+# Nmap 7.70 scan initiated Tue Sep  3 02:13:59 2019 as: nmap -sC -sSV -p 80,443 -v -A --open -Pn -n -T4 -oA /root/BugBounty/Domains/airpay.com.my/Recon/portscan/nmap/103.120.230.52 103.120.230.52
+Nmap scan report for 103.120.230.52
+Host is up (0.0075s latency).
+
+PORT    STATE SERVICE  VERSION
+80/tcp  open  http     nginx
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: SGW
+|_http-title: Did not follow redirect to https://shopee.com/
+443/tcp open  ssl/http nginx
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: SGW
+|_http-title: Did not follow redirect to https://shopee.com/
+| ssl-cert: Subject: commonName=*.ads.shopee.io
+| Subject Alternative Name: DNS:*.ads.shopee.io, DNS:*.api.fds.deep.shopeemobile.com, DNS:*.db.cmdb.shopeemobile.com, DNS:*.deep.shopeemobile.com, DNS:*.ds.shopee.io, DNS:*.rcmd.shopee.io, DNS:*.saops.shopeemobile.com, DNS:*.shopee.io, DNS:*.shopeemobile.com, DNS:*.ssc.shopeemobile.com, DNS:*.sz.shopee.io, DNS:api.fds.deep.shopeemobile.com, DNS:db.cmdb.shopeemobile.com, DNS:shopee.io, DNS:shopeemobile.com
+| Issuer: commonName=Let's Encrypt Authority X3/organizationName=Let's Encrypt/countryName=US
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2019-08-26T01:01:01
+| Not valid after:  2019-11-24T01:01:01
+| MD5:   a272 c627 5fdf e65d 2aad 50c7 a8b6 e3e0
+|_SHA-1: eefb 0f7c ac2f 020e 7bb4 8dd2 797a fdc9 2d14 5c84
+|_ssl-date: TLS randomness does not represent time
+| tls-alpn: 
+|   h2
+|_  http/1.1
+| tls-nextprotoneg: 
+|   h2
+|_  http/1.1
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Linux 4.X
+OS CPE: cpe:/o:linux:linux_kernel:4.4
+OS details: Linux 4.4
+Uptime guess: 8.773 days (since Sun Aug 25 07:41:07 2019)
+Network Distance: 18 hops
+TCP Sequence Prediction: Difficulty=263 (Good luck!)
+IP ID Sequence Generation: All zeros
+
+TRACEROUTE (using port 443/tcp)
+HOP RTT      ADDRESS
+1   ...
+2   4.58 ms  45.32.98.97
+3   ...
+4   1.05 ms  27.111.229.2
+5   ... 6
+7   24.04 ms 223.28.26.154
+8   7.69 ms  223.28.35.225
+9   9.01 ms  223.28.35.245
+10  7.15 ms  223.28.35.201
+11  7.11 ms  223.28.35.213
+12  7.92 ms  223.28.35.209
+13  7.11 ms  223.28.35.197
+14  ... 17
+18  7.06 ms  103.120.230.52
+
+Read data files from: /usr/local/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Sep  3 02:14:23 2019 -- 1 IP address (1 host up) scanned in 24.02 seconds

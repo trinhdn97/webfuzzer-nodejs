@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.70 scan initiated Tue Sep  3 02:13:59 2019 as: nmap -sC -sSV -p 80,443,15100,18100 -v -A -&#45;open -Pn -n -T4 -oA /root/BugBounty/Domains/airpay.com.my/Recon/portscan/nmap/103.120.230.246 103.120.230.246 -->
+<nmaprun scanner="nmap" args="nmap -sC -sSV -p 80,443,15100,18100 -v -A -&#45;open -Pn -n -T4 -oA /root/BugBounty/Domains/airpay.com.my/Recon/portscan/nmap/103.120.230.246 103.120.230.246" start="1567476839" startstr="Tue Sep  3 02:13:59 2019" version="7.70" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="4" services="80,443,15100,18100"/>
+<verbose level="1"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1567476840"/>
+<taskend task="NSE" time="1567476840"/>
+<taskbegin task="NSE" time="1567476840"/>
+<taskend task="NSE" time="1567476840"/>
+<taskbegin task="SYN Stealth Scan" time="1567476840"/>
+<taskend task="SYN Stealth Scan" time="1567476840" extrainfo="4 total ports"/>
+<taskbegin task="Service scan" time="1567476840"/>
+<taskend task="Service scan" time="1567476858" extrainfo="4 services on 1 host"/>
+<taskbegin task="Traceroute" time="1567476859"/>
+<taskend task="Traceroute" time="1567476862"/>
+<taskbegin task="NSE" time="1567476862"/>
+<taskend task="NSE" time="1567476863"/>
+<taskbegin task="NSE" time="1567476863"/>
+<taskend task="NSE" time="1567476863"/>
+<host starttime="1567476840" endtime="1567476863"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="103.120.230.246" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="45"/><service name="http" product="nginx" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-methods" output="&#xa;  Supported Methods: GET HEAD POST OPTIONS"><table key="Supported Methods">
+<elem>GET</elem>
+<elem>HEAD</elem>
+<elem>POST</elem>
+<elem>OPTIONS</elem>
+</table>
+</script><script id="http-server-header" output="SGW"><elem>SGW</elem>
+</script><script id="http-title" output="Did not follow redirect to https://103.120.230.246/"><elem key="redirect_url">https://103.120.230.246/</elem>
+</script></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="50"/><service name="http" product="nginx" extrainfo="bad gateway" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-methods" output="&#xa;  Supported Methods: GET POST HEAD OPTIONS"><table key="Supported Methods">
+<elem>GET</elem>
+<elem>POST</elem>
+<elem>HEAD</elem>
+<elem>OPTIONS</elem>
+</table>
+</script><script id="http-server-header" output="SGW"><elem>SGW</elem>
+</script><script id="http-title" output="Site doesn&apos;t have a title (text/html)."><elem key="title"></elem>
+</script><script id="ssl-cert" output="Subject: commonName=*.ads.live-test.shopee.io&#xa;Subject Alternative Name: DNS:*.ads.live-test.shopee.io, DNS:*.ads.staging.shopee.io, DNS:*.ads.test-stable.shopee.io, DNS:*.ads.test.shopee.io, DNS:*.ads.uat.shopee.io, DNS:*.api.fds.deep.live-test.shopeemobile.com, DNS:*.api.fds.deep.staging.shopeemobile.com, DNS:*.api.fds.deep.test-stable.shopeemobile.com, DNS:*.api.fds.deep.test.shopeemobile.com, DNS:*.api.fds.deep.uat.shopeemobile.com, DNS:*.db.cmdb.live-test.shopeemobile.com, DNS:*.db.cmdb.staging.shopeemobile.com, DNS:*.db.cmdb.test-stable.shopeemobile.com, DNS:*.db.cmdb.test.shopeemobile.com, DNS:*.db.cmdb.uat.shopeemobile.com, DNS:*.deep.live-test.shopeemobile.com, DNS:*.deep.staging.shopeemobile.com, DNS:*.deep.test-stable.shopeemobile.com, DNS:*.deep.test.shopeemobile.com, DNS:*.deep.uat.shopeemobile.com, DNS:*.ds.live-test.shopee.io, DNS:*.ds.staging.shopee.io, DNS:*.ds.test-stable.shopee.io, DNS:*.ds.test.shopee.io, DNS:*.ds.uat.shopee.io, DNS:*.live-test.shopee.io, DNS:*.live-test.shopeemobile.com, DNS:*.rcmd.live-test.shopee.io, DNS:*.rcmd.staging.shopee.io, DNS:*.rcmd.test-stable.shopee.io, DNS:*.rcmd.test.shopee.io, DNS:*.rcmd.uat.shopee.io, DNS:*.saops.shopeemobile.com, DNS:*.ssc.live-test.shopeemobile.com, DNS:*.ssc.staging.shopeemobile.com, DNS:*.ssc.test-stable.shopeemobile.com, DNS:*.ssc.test.shopeemobile.com, DNS:*.ssc.uat.shopeemobile.com, DNS:*.staging.shopee.io, DNS:*.staging.shopeemobile.com, DNS:*.sz.live-test.shopee.io, DNS:*.sz.staging.shopee.io, DNS:*.sz.test-stable.shopee.io, DNS:*.sz.test.shopee.io, DNS:*.sz.uat.shopee.io, DNS:*.test-stable.shopee.io, DNS:*.test-stable.shopeemobile.com, DNS:*.test.shopee.io, DNS:*.test.shopeemobile.com, DNS:*.uat.shopee.io, DNS:*.uat.shopeemobile.com, DNS:api.fds.deep.live-test.shopeemobile.com, DNS:api.fds.deep.staging.shopeemobile.com, DNS:api.fds.deep.test-stable.shopeemobile.com, DNS:api.fds.deep.test.shopeemobile.com, DNS:api.fds.deep.uat.shopeemobile.com, DNS:db.cmdb.live-test.shopeemobile.com, DNS:db.cmdb.staging.shopeemobile.com, DNS:db.cmdb.test-stable.shopeemobile.com, DNS:db.cmdb.test.shopeemobile.com, DNS:db.cmdb.uat.shopeemobile.com, DNS:live-test.shopee.io, DNS:live-test.shopeemobile.com, DNS:saops.shopeemobile.com, DNS:staging.shopee.io, DNS:staging.shopeemobile.com, DNS:test-stable.shopee.io, DNS:test-stable.shopeemobile.com, DNS:test.shopee.io, DNS:test.shopeemobile.com, DNS:uat.shopee.io, DNS:uat.shopeemobile.com&#xa;Issuer: commonName=Let&apos;s Encrypt Authority X3/organizationName=Let&apos;s Encrypt/countryName=US&#xa;Public Key type: rsa&#xa;Public Key bits: 2048&#xa;Signature Algorithm: sha256WithRSAEncryption&#xa;Not valid before: 2019-06-26T08:33:47&#xa;Not valid after:  2019-09-24T08:33:47&#xa;MD5:   96ab 6d73 07b4 475b e53f 11dd 3885 7115&#xa;SHA-1: 6ff1 b141 e7f9 3a02 a48d e82f c952 0693 7bd9 cab4"><table key="subject">
+<elem key="commonName">*.ads.live-test.shopee.io</elem>
+</table>
+<table key="issuer">
+<elem key="countryName">US</elem>
+<elem key="commonName">Let&apos;s Encrypt Authority X3</elem>
+<elem key="organizationName">Let&apos;s Encrypt</elem>
+</table>
+<table key="pubkey">
+<elem key="exponent">userdata: 0x55662446ebe8</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">userdata: 0x55662446ec48</elem>
+<elem key="type">rsa</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="value">TLS Web Server Authentication, TLS Web Client Authentication</elem>
+<elem key="name">X509v3 Extended Key Usage</elem>
+</table>
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:FALSE</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="value">CC:55:78:A4:85:B1:80:53:01:3A:09:10:43:46:72:30:19:C7:9C:E8</elem>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+</table>
+<table>
+<elem key="value">keyid:A8:4A:6A:63:04:7D:DD:BA:E6:D1:39:B7:A6:45:65:EF:F3:A8:EC:A1&#xa;</elem>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+</table>
+<table>
+<elem key="value">OCSP - URI:http://ocsp.int-x3.letsencrypt.org&#xa;CA Issuers - URI:http://cert.int-x3.letsencrypt.org/&#xa;</elem>
+<elem key="name">Authority Information Access</elem>
+</table>
+<table>
+<elem key="value">DNS:*.ads.live-test.shopee.io, DNS:*.ads.staging.shopee.io, DNS:*.ads.test-stable.shopee.io, DNS:*.ads.test.shopee.io, DNS:*.ads.uat.shopee.io, DNS:*.api.fds.deep.live-test.shopeemobile.com, DNS:*.api.fds.deep.staging.shopeemobile.com, DNS:*.api.fds.deep.test-stable.shopeemobile.com, DNS:*.api.fds.deep.test.shopeemobile.com, DNS:*.api.fds.deep.uat.shopeemobile.com, DNS:*.db.cmdb.live-test.shopeemobile.com, DNS:*.db.cmdb.staging.shopeemobile.com, DNS:*.db.cmdb.test-stable.shopeemobile.com, DNS:*.db.cmdb.test.shopeemobile.com, DNS:*.db.cmdb.uat.shopeemobile.com, DNS:*.deep.live-test.shopeemobile.com, DNS:*.deep.staging.shopeemobile.com, DNS:*.deep.test-stable.shopeemobile.com, DNS:*.deep.test.shopeemobile.com, DNS:*.deep.uat.shopeemobile.com, DNS:*.ds.live-test.shopee.io, DNS:*.ds.staging.shopee.io, DNS:*.ds.test-stable.shopee.io, DNS:*.ds.test.shopee.io, DNS:*.ds.uat.shopee.io, DNS:*.live-test.shopee.io, DNS:*.live-test.shopeemobile.com, DNS:*.rcmd.live-test.shopee.io, DNS:*.rcmd.staging.shopee.io, DNS:*.rcmd.test-stable.shopee.io, DNS:*.rcmd.test.shopee.io, DNS:*.rcmd.uat.shopee.io, DNS:*.saops.shopeemobile.com, DNS:*.ssc.live-test.shopeemobile.com, DNS:*.ssc.staging.shopeemobile.com, DNS:*.ssc.test-stable.shopeemobile.com, DNS:*.ssc.test.shopeemobile.com, DNS:*.ssc.uat.shopeemobile.com, DNS:*.staging.shopee.io, DNS:*.staging.shopeemobile.com, DNS:*.sz.live-test.shopee.io, DNS:*.sz.staging.shopee.io, DNS:*.sz.test-stable.shopee.io, DNS:*.sz.test.shopee.io, DNS:*.sz.uat.shopee.io, DNS:*.test-stable.shopee.io, DNS:*.test-stable.shopeemobile.com, DNS:*.test.shopee.io, DNS:*.test.shopeemobile.com, DNS:*.uat.shopee.io, DNS:*.uat.shopeemobile.com, DNS:api.fds.deep.live-test.shopeemobile.com, DNS:api.fds.deep.staging.shopeemobile.com, DNS:api.fds.deep.test-stable.shopeemobile.com, DNS:api.fds.deep.test.shopeemobile.com, DNS:api.fds.deep.uat.shopeemobile.com, DNS:db.cmdb.live-test.shopeemobile.com, DNS:db.cmdb.staging.shopeemobile.com, DNS:db.cmdb.test-stable.shopeemobile.com, DNS:db.cmdb.test.shopeemobile.com, DNS:db.cmdb.uat.shopeemobile.com, DNS:live-test.shopee.io, DNS:live-test.shopeemobile.com, DNS:saops.shopeemobile.com, DNS:staging.shopee.io, DNS:staging.shopeemobile.com, DNS:test-stable.shopee.io, DNS:test-stable.shopeemobile.com, DNS:test.shopee.io, DNS:test.shopeemobile.com, DNS:uat.shopee.io, DNS:uat.shopeemobile.com</elem>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+</table>
+<table>
+<elem key="value">Policy: 2.23.140.1.2.1&#xa;Policy: 1.3.6.1.4.1.44947.1.1.1&#xa;  CPS: http://cps.letsencrypt.org&#xa;</elem>
+<elem key="name">X509v3 Certificate Policies</elem>
+</table>
+<table>
+<elem key="value">Signed Certificate Timestamp:&#xa;    Version   : v1 (0x0)&#xa;    Log ID    : E2:69:4B:AE:26:E8:E9:40:09:E8:86:1B:B6:3B:83:D4:&#xa;                3E:E7:FE:74:88:FB:A4:8F:28:93:01:9D:DD:F1:DB:FE&#xa;    Timestamp : Jun 26 09:33:48.513 2019 GMT&#xa;    Extensions: none&#xa;    Signature : ecdsa-with-SHA256&#xa;                30:46:02:21:00:DE:D6:70:6E:88:6B:C1:26:A0:CC:5A:&#xa;                4E:2D:EE:1D:B6:CE:BB:F6:B4:10:D6:17:7C:F6:CD:58:&#xa;                CB:C5:E3:1C:08:02:21:00:94:29:0C:24:56:AB:50:6E:&#xa;                06:9C:D0:F2:A6:3B:C0:E3:4F:AC:30:B6:0E:A1:99:C2:&#xa;                89:22:87:C5:86:C8:37:2D&#xa;Signed Certificate Timestamp:&#xa;    Version   : v1 (0x0)&#xa;    Log ID    : 29:3C:51:96:54:C8:39:65:BA:AA:50:FC:58:07:D4:B7:&#xa;                6F:BF:58:7A:29:72:DC:A4:C3:0C:F4:E5:45:47:F4:78&#xa;    Timestamp : Jun 26 09:33:48.051 2019 GMT&#xa;    Extensions: none&#xa;    Signature : ecdsa-with-SHA256&#xa;                30:45:02:20:14:FD:B9:3F:0A:C1:2E:3F:98:BB:5D:C9:&#xa;                03:9A:D6:1F:85:0C:15:8D:A7:72:4A:BE:86:9E:B8:1D:&#xa;                C4:B8:C6:CB:02:21:00:FE:A9:B5:D2:56:9A:23:6A:D0:&#xa;                05:E9:1E:4C:4A:59:3A:9A:C7:C5:81:95:8A:41:A2:3B:&#xa;                B1:9E:93:0E:3F:C9:9B</elem>
+<elem key="name">CT Precertificate SCTs</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2019-06-26T08:33:47</elem>
+<elem key="notAfter">2019-09-24T08:33:47</elem>
+</table>
+<elem key="md5">96ab6d7307b4475be53f11dd38857115</elem>
+<elem key="sha1">6ff1b141e7f93a02a48de82fc95206937bd9cab4</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIINcjCCDFqgAwIBAgISA60sbWK6ucs2aWkA+umMUOPXMA0GCSqGSIb3DQEBCwUA&#xa;MEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD&#xa;ExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0xOTA2MjYwODMzNDdaFw0x&#xa;OTA5MjQwODMzNDdaMCQxIjAgBgNVBAMMGSouYWRzLmxpdmUtdGVzdC5zaG9wZWUu&#xa;aW8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3022tcyKM2U+fKJyL&#xa;xDt7AOvBL3hR2CyW2676aXuMvBj9eb05IEOI0SSF2r0IsfQKAocI5JXKbapXp/2/&#xa;Kk8yvhR9bEqVG6Ez4Sf8aVzyvKOGq059cXeDUtoRhy8Yd2w8MPS2AUlW5+fEvUXL&#xa;hzUb8bTq/AXnRZiJqPaC5Xdttyw5XXkYChG9p0RJ/3c4RDbXaltv7j52rpmUm4uI&#xa;vhFz9ItokszlIAxAST7CO4PCQnJSMYpqN/VzemF/ZdQ9W+Mna1FjhUhbl7ImhMHx&#xa;iOaWJdwHNs54T12COn51n5P5l/y/xD6JejhcwlorYaMHvE3eNTeiE62seF2zvcmz&#xa;St+3AgMBAAGjggp2MIIKcjAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYB&#xa;BQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFMxVeKSFsYBT&#xa;AToJEENGcjAZx5zoMB8GA1UdIwQYMBaAFKhKamMEfd265tE5t6ZFZe/zqOyhMG8G&#xa;CCsGAQUFBwEBBGMwYTAuBggrBgEFBQcwAYYiaHR0cDovL29jc3AuaW50LXgzLmxl&#xa;dHNlbmNyeXB0Lm9yZzAvBggrBgEFBQcwAoYjaHR0cDovL2NlcnQuaW50LXgzLmxl&#xa;dHNlbmNyeXB0Lm9yZy8wgggpBgNVHREEggggMIIIHIIZKi5hZHMubGl2ZS10ZXN0&#xa;LnNob3BlZS5pb4IXKi5hZHMuc3RhZ2luZy5zaG9wZWUuaW+CGyouYWRzLnRlc3Qt&#xa;c3RhYmxlLnNob3BlZS5pb4IUKi5hZHMudGVzdC5zaG9wZWUuaW+CEyouYWRzLnVh&#xa;dC5zaG9wZWUuaW+CKSouYXBpLmZkcy5kZWVwLmxpdmUtdGVzdC5zaG9wZWVtb2Jp&#xa;bGUuY29tgicqLmFwaS5mZHMuZGVlcC5zdGFnaW5nLnNob3BlZW1vYmlsZS5jb22C&#xa;KyouYXBpLmZkcy5kZWVwLnRlc3Qtc3RhYmxlLnNob3BlZW1vYmlsZS5jb22CJCou&#xa;YXBpLmZkcy5kZWVwLnRlc3Quc2hvcGVlbW9iaWxlLmNvbYIjKi5hcGkuZmRzLmRl&#xa;ZXAudWF0LnNob3BlZW1vYmlsZS5jb22CJCouZGIuY21kYi5saXZlLXRlc3Quc2hv&#xa;cGVlbW9iaWxlLmNvbYIiKi5kYi5jbWRiLnN0YWdpbmcuc2hvcGVlbW9iaWxlLmNv&#xa;bYImKi5kYi5jbWRiLnRlc3Qtc3RhYmxlLnNob3BlZW1vYmlsZS5jb22CHyouZGIu&#xa;Y21kYi50ZXN0LnNob3BlZW1vYmlsZS5jb22CHiouZGIuY21kYi51YXQuc2hvcGVl&#xa;bW9iaWxlLmNvbYIhKi5kZWVwLmxpdmUtdGVzdC5zaG9wZWVtb2JpbGUuY29tgh8q&#xa;LmRlZXAuc3RhZ2luZy5zaG9wZWVtb2JpbGUuY29tgiMqLmRlZXAudGVzdC1zdGFi&#xa;bGUuc2hvcGVlbW9iaWxlLmNvbYIcKi5kZWVwLnRlc3Quc2hvcGVlbW9iaWxlLmNv&#xa;bYIbKi5kZWVwLnVhdC5zaG9wZWVtb2JpbGUuY29tghgqLmRzLmxpdmUtdGVzdC5z&#xa;aG9wZWUuaW+CFiouZHMuc3RhZ2luZy5zaG9wZWUuaW+CGiouZHMudGVzdC1zdGFi&#xa;bGUuc2hvcGVlLmlvghMqLmRzLnRlc3Quc2hvcGVlLmlvghIqLmRzLnVhdC5zaG9w&#xa;ZWUuaW+CFSoubGl2ZS10ZXN0LnNob3BlZS5pb4IcKi5saXZlLXRlc3Quc2hvcGVl&#xa;bW9iaWxlLmNvbYIaKi5yY21kLmxpdmUtdGVzdC5zaG9wZWUuaW+CGCoucmNtZC5z&#xa;dGFnaW5nLnNob3BlZS5pb4IcKi5yY21kLnRlc3Qtc3RhYmxlLnNob3BlZS5pb4IV&#xa;Ki5yY21kLnRlc3Quc2hvcGVlLmlvghQqLnJjbWQudWF0LnNob3BlZS5pb4IYKi5z&#xa;YW9wcy5zaG9wZWVtb2JpbGUuY29tgiAqLnNzYy5saXZlLXRlc3Quc2hvcGVlbW9i&#xa;aWxlLmNvbYIeKi5zc2Muc3RhZ2luZy5zaG9wZWVtb2JpbGUuY29tgiIqLnNzYy50&#xa;ZXN0LXN0YWJsZS5zaG9wZWVtb2JpbGUuY29tghsqLnNzYy50ZXN0LnNob3BlZW1v&#xa;YmlsZS5jb22CGiouc3NjLnVhdC5zaG9wZWVtb2JpbGUuY29tghMqLnN0YWdpbmcu&#xa;c2hvcGVlLmlvghoqLnN0YWdpbmcuc2hvcGVlbW9iaWxlLmNvbYIYKi5zei5saXZl&#xa;LXRlc3Quc2hvcGVlLmlvghYqLnN6LnN0YWdpbmcuc2hvcGVlLmlvghoqLnN6LnRl&#xa;c3Qtc3RhYmxlLnNob3BlZS5pb4ITKi5zei50ZXN0LnNob3BlZS5pb4ISKi5zei51&#xa;YXQuc2hvcGVlLmlvghcqLnRlc3Qtc3RhYmxlLnNob3BlZS5pb4IeKi50ZXN0LXN0&#xa;YWJsZS5zaG9wZWVtb2JpbGUuY29tghAqLnRlc3Quc2hvcGVlLmlvghcqLnRlc3Qu&#xa;c2hvcGVlbW9iaWxlLmNvbYIPKi51YXQuc2hvcGVlLmlvghYqLnVhdC5zaG9wZWVt&#xa;b2JpbGUuY29tgidhcGkuZmRzLmRlZXAubGl2ZS10ZXN0LnNob3BlZW1vYmlsZS5j&#xa;b22CJWFwaS5mZHMuZGVlcC5zdGFnaW5nLnNob3BlZW1vYmlsZS5jb22CKWFwaS5m&#xa;ZHMuZGVlcC50ZXN0LXN0YWJsZS5zaG9wZWVtb2JpbGUuY29tgiJhcGkuZmRzLmRl&#xa;ZXAudGVzdC5zaG9wZWVtb2JpbGUuY29tgiFhcGkuZmRzLmRlZXAudWF0LnNob3Bl&#xa;ZW1vYmlsZS5jb22CImRiLmNtZGIubGl2ZS10ZXN0LnNob3BlZW1vYmlsZS5jb22C&#xa;IGRiLmNtZGIuc3RhZ2luZy5zaG9wZWVtb2JpbGUuY29tgiRkYi5jbWRiLnRlc3Qt&#xa;c3RhYmxlLnNob3BlZW1vYmlsZS5jb22CHWRiLmNtZGIudGVzdC5zaG9wZWVtb2Jp&#xa;bGUuY29tghxkYi5jbWRiLnVhdC5zaG9wZWVtb2JpbGUuY29tghNsaXZlLXRlc3Qu&#xa;c2hvcGVlLmlvghpsaXZlLXRlc3Quc2hvcGVlbW9iaWxlLmNvbYIWc2FvcHMuc2hv&#xa;cGVlbW9iaWxlLmNvbYIRc3RhZ2luZy5zaG9wZWUuaW+CGHN0YWdpbmcuc2hvcGVl&#xa;bW9iaWxlLmNvbYIVdGVzdC1zdGFibGUuc2hvcGVlLmlvghx0ZXN0LXN0YWJsZS5z&#xa;aG9wZWVtb2JpbGUuY29tgg50ZXN0LnNob3BlZS5pb4IVdGVzdC5zaG9wZWVtb2Jp&#xa;bGUuY29tgg11YXQuc2hvcGVlLmlvghR1YXQuc2hvcGVlbW9iaWxlLmNvbTBMBgNV&#xa;HSAERTBDMAgGBmeBDAECATA3BgsrBgEEAYLfEwEBATAoMCYGCCsGAQUFBwIBFhpo&#xa;dHRwOi8vY3BzLmxldHNlbmNyeXB0Lm9yZzCCAQUGCisGAQQB1nkCBAIEgfYEgfMA&#xa;8QB3AOJpS64m6OlACeiGG7Y7g9Q+5/50iPukjyiTAZ3d8dv+AAABa5MiUmEAAAQD&#xa;AEgwRgIhAN7WcG6Ia8EmoMxaTi3uHbbOu/a0ENYXfPbNWMvF4xwIAiEAlCkMJFar&#xa;UG4GnNDypjvA40+sMLYOoZnCiSKHxYbINy0AdgApPFGWVMg5ZbqqUPxYB9S3b79Y&#xa;eily3KTDDPTlRUf0eAAAAWuTIlCTAAAEAwBHMEUCIBT9uT8KwS4/mLtdyQOa1h+F&#xa;DBWNp3JKvoaeuB3EuMbLAiEA/qm10laaI2rQBekeTEpZOprHxYGVikGiO7Gekw4/&#xa;yZswDQYJKoZIhvcNAQELBQADggEBAGf0WptUtFsVG1qanH2xrdMhCs49jQg1WWSZ&#xa;H1xvToquczXuTXV9+yTpfH09SP4u7ZnTBocePieLKeQ3czNEinQ2oVcZHVU2M10x&#xa;5ePQYgACq9N2lNaL5ySbdjuUFe9/XvZxwhPZInM5G2T+8jxwoHCHWTygbeDO3zBD&#xa;58BqSuY2MdK91HzsNgjII006NZxnuSU9llD7Z9dDUlf56aEq9p5zHi1Vv1T8ww9x&#xa;Y1YaMRDeb6Wd2pkAOftCNvri/QgLBB+PxgQDowprL88r2nLYWNDeNep1JcFqa31Z&#xa;NAYFa95sT3wy1JAVvPYOeoyCFCuvPcAkuqaWcmm0ISSGvgSsdCQ=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="tls-alpn" output="&#xa;  h2&#xa;  http/1.1"><elem>h2</elem>
+<elem>http/1.1</elem>
+</script><script id="tls-nextprotoneg" output="&#xa;  h2&#xa;  http/1.1"><elem>h2</elem>
+<elem>http/1.1</elem>
+</script></port>
+<port protocol="tcp" portid="15100"><state state="open" reason="syn-ack" reason_ttl="45"/><service name="http" product="nginx" extrainfo="bad gateway" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-server-header" output="SGW"><elem>SGW</elem>
+</script><script id="http-title" output="Site doesn&apos;t have a title (text/html)."><elem key="title"></elem>
+</script></port>
+<port protocol="tcp" portid="18100"><state state="open" reason="syn-ack" reason_ttl="50"/><service name="http" product="nginx" extrainfo="bad gateway" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-server-header" output="SGW"><elem>SGW</elem>
+</script><script id="http-title" output="Site doesn&apos;t have a title (text/html)."><elem key="title"></elem>
+</script></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="80"/>
+<osmatch name="Linux 4.4" accuracy="100" line="67202">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:4.4</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="2058235" lastboot="Sat Aug 10 06:30:28 2019"/>
+<distance value="18"/>
+<tcpsequence index="259" difficulty="Good luck!" values="2FA790F8,F6F13903,972E855E,774B61CE,D6E5BA43,491C8809"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="1000HZ" values="7AAE1C8D,7AAE1CF2,7AAE1D55,7AAE1DB9,7AAE1E1E,7AAE1E82"/>
+<trace port="443" proto="tcp">
+<hop ttl="2" ipaddr="45.32.98.97" rtt="56.45"/>
+<hop ttl="4" ipaddr="27.111.229.2" rtt="1.02"/>
+<hop ttl="7" ipaddr="223.28.26.154" rtt="7.34"/>
+<hop ttl="8" ipaddr="223.28.35.225" rtt="7.72"/>
+<hop ttl="9" ipaddr="223.28.35.245" rtt="9.02"/>
+<hop ttl="10" ipaddr="223.28.35.201" rtt="7.79"/>
+<hop ttl="11" ipaddr="223.28.35.213" rtt="7.94"/>
+<hop ttl="12" ipaddr="223.28.35.209" rtt="7.71"/>
+<hop ttl="13" ipaddr="223.28.35.197" rtt="7.20"/>
+<hop ttl="18" ipaddr="103.120.230.246" rtt="6.93"/>
+</trace>
+<times srtt="7337" rttvar="649" to="100000"/>
+</host>
+<taskbegin task="NSE" time="1567476863"/>
+<taskend task="NSE" time="1567476863"/>
+<taskbegin task="NSE" time="1567476863"/>
+<taskend task="NSE" time="1567476863"/>
+<runstats><finished time="1567476863" timestr="Tue Sep  3 02:14:23 2019" elapsed="23.95" summary="Nmap done at Tue Sep  3 02:14:23 2019; 1 IP address (1 host up) scanned in 23.95 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

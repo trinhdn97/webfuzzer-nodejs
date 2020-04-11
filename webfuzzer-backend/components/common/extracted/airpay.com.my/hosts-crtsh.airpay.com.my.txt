@@ -1,0 +1,13 @@
+dp-hub-admin.airpay.com.my
+idata.airpay.com.my
+live-test.idata.airpay.com.my
+live-test.wallet.airpay.com.my
+staging.idata.airpay.com.my
+staging.wallet.airpay.com.my
+test.idata.airpay.com.my
+test-stable.idata.airpay.com.my
+test-stable.wallet.airpay.com.my
+test.wallet.airpay.com.my
+uat.idata.airpay.com.my
+uat.wallet.airpay.com.my
+wallet.airpay.com.my

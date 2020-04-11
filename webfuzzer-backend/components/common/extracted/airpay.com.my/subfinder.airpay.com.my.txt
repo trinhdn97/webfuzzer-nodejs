@@ -1,0 +1,7 @@
+staging.wallet.airpay.com.my
+test.wallet.airpay.com.my
+uat.wallet.airpay.com.my
+wallet.airpay.com.my
+staging.wallet.airpay.com.my
+test.wallet.airpay.com.my
+uat.wallet.airpay.com.my

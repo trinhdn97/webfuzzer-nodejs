@@ -1,5 +1,0 @@
-# Nmap 7.70 scan initiated Tue Sep  3 02:13:59 2019 as: nmap -sC -sSV -p 80,443,15100,18100 -v -A --open -Pn -n -T4 -oA /root/BugBounty/Domains/airpay.com.my/Recon/portscan/nmap/103.120.230.246 103.120.230.246
-# Ports scanned: TCP(4;80,443,15100,18100) UDP(0;) SCTP(0;) PROTOCOLS(0;)
-Host: 103.120.230.246 ()	Status: Up
-Host: 103.120.230.246 ()	Ports: 80/open/tcp//http//nginx/, 443/open/tcp//ssl|http//nginx (bad gateway)/, 15100/open/tcp//http//nginx (bad gateway)/, 18100/open/tcp//http//nginx (bad gateway)/	OS: Linux 4.4	Seq Index: 259	IP ID Seq: All zeros
-# Nmap done at Tue Sep  3 02:14:23 2019 -- 1 IP address (1 host up) scanned in 23.95 seconds

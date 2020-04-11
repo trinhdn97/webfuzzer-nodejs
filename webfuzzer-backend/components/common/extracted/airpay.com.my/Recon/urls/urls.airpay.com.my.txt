@@ -1,8 +1,0 @@
-http://admin.test.wallet.airpay.com.my:80
-https://admin.staging.wallet.airpay.com.my:443
-http://admin.staging.wallet.airpay.com.my:80
-https://admin.test.wallet.airpay.com.my:443
-https://admin.uat.wallet.airpay.com.my:443
-https://admin.wallet.airpay.com.my:443
-http://admin.wallet.airpay.com.my:80
-http://admin.uat.wallet.airpay.com.my:80

@@ -1,8 +1,0 @@
-https://admin.wallet.airpay.com.my
-https://admin.uat.wallet.airpay.com.my
-http://admin.test.wallet.airpay.com.my
-https://admin.test.wallet.airpay.com.my
-http://admin.wallet.airpay.com.my
-https://admin.staging.wallet.airpay.com.my
-http://admin.uat.wallet.airpay.com.my
-http://admin.staging.wallet.airpay.com.my

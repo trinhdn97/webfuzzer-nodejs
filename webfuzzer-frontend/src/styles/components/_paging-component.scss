@@ -1,0 +1,31 @@
+.paging-table {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    .pagination {
+        font-size: 14px;
+        line-height: 18px;
+        li {
+            padding:8px;
+            min-width: 40px;
+            text-align: center;
+            a {
+                color:#0d89ff;
+            }
+            &.active {
+                a {
+                    color:#e9ecef;
+                    text-decoration: underline;
+                }
+            }
+            &.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                a {
+                    cursor: not-allowed;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.endpoints {
+    padding: 24px;
+    background-color: #1e1e41;
+    border: 1px solid #2b2b5c;
+    border-radius: 4px;
+    height: 100%;
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-text {
+            font-size: 16px;
+            color: white;
+            line-height: 24px;
+        }
+        &-btn {
+            padding: 4px 20px;
+            border: none;
+            border-radius: 28px;
+            background: transparent linear-gradient(75deg, #0d89ff, #0be8a1);
+            color: #181834;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+    &__content {
+        padding: 20px;
+        margin-top: 32px;
+        border: 1px solid #2b2b5c;
+        
+        &-item {
+            font-size: 14px;
+            color: white;
+            margin-bottom: 8px;
+            word-break: break-word;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            i {
+                margin-right: 8px;
+                margin-top: 4px;
+            }
+            &-active {
+                color:#0d89ff
+            }
+        }
+    }
+}

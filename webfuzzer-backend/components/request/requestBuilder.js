@@ -1,4 +1,5 @@
 const request = require('request-promise-native');
+import { encodeUrl, verbose } from '../../server';
 
 // TODO: reduce the size of request bunch (around 50 request per once)
 export const buildRequest = async (baseReq) => {
@@ -7,9 +8,9 @@ export const buildRequest = async (baseReq) => {
             let req = JSON.parse(baseReq.req);
 
             // TODO: add cookies to request options
-            const options = {
+            let options = {
                 method: req.method,
-                url: encodeURI(req.url), // TODO: check this later, is it necessary to encode URL before sending?
+                url: encodeUrl ? encodeURI(req.url) : req.url,
                 headers: req.headers,
                 form: req.data, // TODO: fix this to fit all content-type (https://github.com/request/request#forms)
                 gzip: true,
@@ -20,18 +21,40 @@ export const buildRequest = async (baseReq) => {
                 // json: true
                 // transform: filterResponse // TODO: transform HTTP responses to fit the model
             }
+            if (baseReq.vulnId === '2') options.timeout = baseReq.timeout;
+            if (verbose) {
+                console.log('baseReq after include payload:', baseReq);
+                console.log('options:', options);
+            }
 
             request(options).then((resp) => {
                 resp.payload = baseReq.payload;
                 resp.vulnId = baseReq.vulnId;
                 return resolve(filterResponse(resp, baseReq.vulnId));
             }).catch((err) => {
-                console.log('Error while processing request:', err);
+                // console.log('Error while processing request:', err);
+                if ((err.message === 'Error: ETIMEDOUT' || err.message === 'Error: ESOCKETTIMEDOUT'))
+                    return resolve({
+                        payload: baseReq.payload,
+                        vulnId: baseReq.vulnId,
+                        body: '',
+                        statusCode: 500,
+                        elapsedTime: baseReq.timeout,
+                        contentLength: 0
+                    });
+                else return resolve({
+                    payload: baseReq.payload,
+                    vulnId: baseReq.vulnId,
+                    body: '',
+                    statusCode: 500,
+                    elapsedTime: 0,
+                    contentLength: 0
+                });
             });
         } catch (ex) {
             console.log(baseReq);
-            // console.log("============> requestBuilder => buildRequest => exception: ", ex);
-            return reject(ex);
+            console.log("============> requestBuilder => buildRequest => exception: ", ex);
+            return reject(false);
         }
     })
 }

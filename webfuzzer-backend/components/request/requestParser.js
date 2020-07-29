@@ -1,11 +1,16 @@
 import { readPayloadFile, escapeString, unescapeString } from '../common/index';
+import { verbose } from '../../server';
 let patternRegex = /\\xa7.*?\\xa7/g;
 let payloadRegex = /\\xa7.*?\\xa7/;
 
 // TODO: split retList into multiple parts if possible
-export const appendPayloadToRequest = (baseReq, payloadFile, vulnId, OOB = null, strategy = 'sniper') => {
+export const appendPayloadToRequest = (baseReq, config, vulnId, OOB = null, strategy = 'sniper') => {
+    if (verbose) {
+        console.log('baseReq:', baseReq);
+        console.log('config:', config);
+    }
     let retList = [], patternList, req;
-    let payloadList = readPayloadFile(payloadFile);
+    let payloadList = readPayloadFile(config.payloadFile);
     
     for (var payloadIdx in payloadList) {
         let newPayload = escapeString(payloadList[payloadIdx]);
@@ -22,7 +27,8 @@ export const appendPayloadToRequest = (baseReq, payloadFile, vulnId, OOB = null,
             if (vulnId === "6") retList.push({
                 vulnId: 'normalReq',
                 payload: reqIdx,
-                req: patternList[reqIdx].replace(payloadRegex, '').replace(/\\xa7/g, '')
+                req: patternList[reqIdx].replace(payloadRegex, '').replace(/\\xa7/g, ''),
+                timeout: config.time * 1000
             });
             for (var payloadIdx in payloadList) {
                 req = patternList[reqIdx].replace(payloadRegex, payloadList[payloadIdx]).replace(/\\xa7/g, '');
@@ -31,7 +37,8 @@ export const appendPayloadToRequest = (baseReq, payloadFile, vulnId, OOB = null,
                     normalReq: reqIdx,
                     vulnId: vulnId,
                     payload: unescapeString(payloadList[payloadIdx]),
-                    req
+                    req,
+                    timeout: config.time * 1000
                 });
             }
         }

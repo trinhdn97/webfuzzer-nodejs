@@ -2,9 +2,10 @@ import { appendPayloadToRequest, buildRequest } from '../components/request/inde
 import { grepMatch, timebased, commonFuzz, openRedirect } from '../components/fuzzer/index';
 import { requestStatus, color } from '../components/constant/index';
 import { appendFile, convertQuestionMark, unescapeTarget, getBanner } from '../components/common/index';
-import { defaultFuzzConfig, defaultVulnTypes, autoExecuteQueuedRequest } from '../server';
+import { defaultFuzzConfig, defaultVulnTypes, autoExecuteQueuedRequest, verbose } from '../server';
 import { requestQueue, isFuzzing } from '../server';
 const request = require('request-promise-native');
+const globalConfig = require("../globalConfig");
 var moment = require('moment');
 var moment = require('moment-timezone');
 let now = require("performance-now"), start, end;
@@ -50,15 +51,17 @@ export default class fuzzService {
                     WHERE Request.Id = ?;`, requestId);
                 requestInfo = requestInfo[0];
                 requestInfo.Config = defaultFuzzConfig;
-                if (requestInfo.VulnTypes === null) requestInfo.VulnTypes = JSON.stringify(defaultVulnTypes);
-                if (requestInfo.Status !== requestStatus.submitted && requestInfo.Status !== requestStatus.queued) {
+                if (!requestInfo.VulnTypes) requestInfo.VulnTypes = JSON.stringify(defaultVulnTypes);
+                if (requestInfo.Status == requestStatus.completed) {
                     if (tx) await tx.rollback();
-                    let rejectText = requestInfo.Status === requestStatus.processing ? 'Fuzz request is being executed!' : 'Fuzz request has already been executed!';
+                    let rejectText = 'Fuzz request has already been executed!';
                     return reject(rejectText);
                 }
-                // TODO: check this comments
-                // let changeRequestStatusResult = await tx.execute(`
-                //     UPDATE Request SET Status = ? WHERE Id = ?;`, [requestStatus.processing, requestId]);
+                await mySqlConnection.query(`
+                    UPDATE Request SET Status = ? WHERE Id = ?;`, [requestStatus.processing, requestId]);
+                if (requestInfo.IdResult)
+                    await mySqlConnection.query(`
+                        UPDATE Result SET Result = ? WHERE Id = ?;`, [null, requestInfo.IdResult]);
                 makeRequestList(requestInfo);
 
                 await tx.commit();
@@ -141,6 +144,31 @@ export default class fuzzService {
             }
         });
     }
+
+    async executeSubmittedRequest() {
+        return new Promise(async (resolve, reject) => {
+            try {
+                console.log('[fuzzService] executeSubmittedRequest...');
+                let nextRequestId = await mySqlConnection.query(`SELECT Id FROM Request WHERE Status = ? OR Status = ? LIMIT 1;`, [requestStatus.submitted, requestStatus.queued]);
+                if (nextRequestId.results.length === 0) return reject("Nothing to execute");
+                const options = {
+                    method: 'get',
+                    url: `http://localhost:${globalConfig.SERVICE_PORT}/fuzz/?requestId=${nextRequestId.results[0].Id}`
+                }
+                try {
+                    request(options);
+                    return resolve({ requestId: nextRequestId.results[0].Id })
+                } catch (ex) {
+                    console.log('Error while processing request in fuzz service:', ex);
+                }
+                return reject("Nothing to execute");
+            }
+            catch (ex) {
+                console.log("============> fuzzService => executeSubmittedRequest => exception: ", ex);
+                return reject(ex);
+            }
+        });
+    }
 }
 
 /**
@@ -182,12 +210,12 @@ const updateFuzzingLog = async (requestId, vulnType, payload, payloadIdxInBaseRe
         currResult.Result = JSON.parse(currResult.Result);
         let timestamp = moment(Date.now()).tz("Asia/Ho_Chi_Minh").format('YYYY-MM-DD HH:mm:ss');
         let fuzzResult = currResult.Result;
-        if (currResult.IdResult == null) {
+        if (!currResult.IdResult) {
             let fuzzResult = {};
             fuzzResult[vulnType] = [{ payload, payloadIdx: payloadIdxInBaseRequest, timebased: timebasedResult, matchList }];
             const newResult = {
                 Timestamp: timestamp,
-                Result: JSON.stringify(fuzzResult, null, 2)
+                Result: JSON.stringify(fuzzResult)
             };
             let insertedResult = await tx.execute(`INSERT INTO Result SET ?`, newResult);
             insertedResult = insertedResult.insertId;
@@ -201,7 +229,7 @@ const updateFuzzingLog = async (requestId, vulnType, payload, payloadIdxInBaseRe
                 fuzzResult[vulnType] = [{ payload, payloadIdx: payloadIdxInBaseRequest, timebased: timebasedResult, matchList }];
                 const newResult = {
                     Timestamp: timestamp,
-                    Result: JSON.stringify(fuzzResult, null, 2)
+                    Result: JSON.stringify(fuzzResult)
                 };
                 let updateRequestResult = await tx.execute(`
                     UPDATE Result SET ? WHERE Id = ?;`, [newResult, currResult.IdResult]);
@@ -211,7 +239,7 @@ const updateFuzzingLog = async (requestId, vulnType, payload, payloadIdxInBaseRe
                 payloadList.push({ payload, payloadIdx: payloadIdxInBaseRequest, timebased: timebasedResult, matchList });
                 const newResult = {
                     Timestamp: timestamp,
-                    Result: JSON.stringify(fuzzResult, null, 2)
+                    Result: JSON.stringify(fuzzResult)
                 };
                 let updateRequestResult = await tx.execute(`
                     UPDATE Result SET ? WHERE Id = ?;`, [newResult, currResult.IdResult]);
@@ -234,17 +262,21 @@ const makeRequestList = async (requestInfo) => {
         let vulnTypes = JSON.parse(requestInfo.VulnTypes).vulnTypes;
         let reqList, tx;
         for (var vulnId in vulnTypes) {
-            // console.time("Fuzzing");
+            if (verbose) {
+                console.time("Fuzzing");
+            }
             // start = now();
             console.log(`${color.FgMagenta}Start fuzzing for ${config[vulnTypes[vulnId]].label}...${color.Reset}`);
             console.log(`  ${color.FgMagenta}Status\t Code\tLength\tTime\tPayload${color.Reset}`);
-            reqList = appendPayloadToRequest(convertQuestionMark(requestInfo.BaseRequest), config[vulnTypes[vulnId]].payloadFile, vulnTypes[vulnId]);
+            reqList = appendPayloadToRequest(convertQuestionMark(requestInfo.BaseRequest), config[vulnTypes[vulnId]], vulnTypes[vulnId]);
             // console.log(reqList[0]);
             await sendRequestList(requestInfo.IdRequest, { config: { [vulnTypes[vulnId]]: config[vulnTypes[vulnId]] }, reqList });
             console.log(`${color.FgMagenta}Done fuzzing for ${config[vulnTypes[vulnId]].label}!${color.Reset}`);
             // end = now();
             // console.log('performance-now:', (start-end).toFixed(3));
-            // console.timeEnd("Fuzzing");
+            if (verbose) {
+                console.timeEnd("Fuzzing");
+            }
         }
 
         if (!requestInfo.IdRequest) return;
@@ -281,7 +313,7 @@ const makeRequestList = async (requestInfo) => {
 
         let updateLogResult = await tx.execute(`UPDATE Request SET Status = ? WHERE Id = ?;`, [requestStatus.completed, requestInfo.IdRequest]);
         const newResult = {
-            Result: JSON.stringify(currResult.Result, null, 2),
+            Result: JSON.stringify(currResult.Result),
             Timestamp: timestamp
         }
         let filterDuplicatePayloadsResult = await tx.execute(`UPDATE Result SET ? WHERE Id = ?;`, [newResult, currResult.IdResult]);
@@ -295,7 +327,7 @@ const makeRequestList = async (requestInfo) => {
         if (nextRequestId.results.length === 0) return;
         const options = {
             method: 'get',
-            url: `http://localhost:13337/fuzz/?requestId=${nextRequestId.results[0].Id}`
+            url: `http://localhost:${globalConfig.SERVICE_PORT}/fuzz/?requestId=${nextRequestId.results[0].Id}`
         }
         try {
             request(options);
@@ -323,6 +355,9 @@ const sendRequestList = async (requestId, fuzzObj) => {
     for (var reqIdx in fuzzObj.reqList) {
         try {
             resp = await buildRequest(fuzzObj.reqList[reqIdx]);
+            if (verbose) {
+                console.log('resp:', resp);
+            }
             // TODO: finish fuzz module
             if (resp.vulnId !== 'normalReq') {
                 let { matchResult, matchList, timebasedResult } = grepMatch(resp, fuzzObj.config[resp.vulnId]);
@@ -344,7 +379,7 @@ const sendRequestList = async (requestId, fuzzObj) => {
                     let { result, lengthRatio, textRatio, regexList } = commonFuzz(resp, normalResp, fuzzObj.config[resp.vulnId]);
                     if (result.lengthRatio || result.statusCode || result.textRatio || result.matchRegex || result.time) {
                         // TODO (urgent): update common fuzzing log
-                        console.log(color.FgGreen, '[passed]\t', `${result.statusCode ? color.FgRed : color.FgYellow}${resp.statusCode}\t${result.lengthRatio ? color.FgRed : color.FgYellow}${resp.contentLength}\t${result.time ? color.FgRed : color.FgYellow}${resp.elapsedTime}\t${color.FgYellow}${resp.payload}\t${result.matchRegex? color.FgRed + regexList.toString(): ''}\t${result.lengthRatio ? color.FgRed : color.FgYellow}(length ratio: ${lengthRatio.toFixed(3)})\t${result.textRatio ? color.FgRed + `(text ratio: ${textRatio})` : ''}`, color.Reset);
+                        console.log(color.FgGreen, '[passed]\t', `${result.statusCode ? color.FgRed : color.FgYellow}${resp.statusCode}\t${result.lengthRatio ? color.FgRed : color.FgYellow}${resp.contentLength}\t${result.time ? color.FgRed : color.FgYellow}${resp.elapsedTime}\t${color.FgYellow}${resp.payload}\t${result.matchRegex ? color.FgRed + regexList.toString() : ''}\t${result.lengthRatio ? color.FgRed : color.FgYellow}(length ratio: ${lengthRatio.toFixed(3)})\t${result.textRatio ? color.FgRed + `(text ratio: ${textRatio})` : ''}`, color.Reset);
 
                         // console.log(color.FgGreen, '[passed]\t', `${result.statusCode ? color.FgRed : color.FgYellow}${resp.statusCode}\t${result.lengthRatio ? color.FgRed : color.FgYellow}${resp.contentLength} (length ratio: ${lengthRatio.toFixed(3)})\t`, `${result.textRatio ? color.FgRed + `(text ratio: ${textRatio})\t` : ''}${result.time ? color.FgRed : color.FgYellow}${resp.elapsedTime}\t${color.FgYellow}${resp.payload}\t${result.matchRegex? color.FgRed + regexList.toString(): ''}`, color.Reset);
 
@@ -368,7 +403,7 @@ const sendRequestList = async (requestId, fuzzObj) => {
         }
     }
     // TODO (urgent): insert database here
-    
+
 }
 
 // TODO: force re-processing a request if hang out

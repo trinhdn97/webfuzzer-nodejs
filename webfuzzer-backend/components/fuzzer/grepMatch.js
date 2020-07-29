@@ -1,4 +1,5 @@
 import { readPayloadFile, escapeString } from '../common/index';
+import { verbose } from '../../server';
 const RegexParser = require("regex-parser");
 const fuzz = require('fuzzball');
 
@@ -38,6 +39,9 @@ export const grepMatch = (resp, config) => {
         }
         let ret = keywordMatch();
         ret.timebasedResult = timebased(resp, config);
+        if (verbose) {
+            console.log('grepMatch result:', ret);
+        }
         return ret;
     } catch (ex) {
         console.log("============> components => fuzzer => grepMatch => grepMatch => exception: ", ex);
@@ -48,7 +52,7 @@ export const grepMatch = (resp, config) => {
 
 export const timebased = (resp, config) => {
     try {
-        if (config['time'] != '') return resp.elapsedTime > config['time'] * 1000;
+        if (config['time'] != '') return resp.elapsedTime >= config['time'] * 1000;
 
         return false;
     } catch (ex) {
@@ -74,7 +78,9 @@ export const commonFuzz = (resp, normalResp, config) => {
             }
         }
         let result = { lengthRatio: lengthRatio > 0.2, statusCode: normalResp.statusCode !== resp.statusCode, textRatio: false, matchRegex, time: resp.elapsedTime > config['time'] * 1000 };
-
+        if (verbose) {
+            console.log('commonFuzz result:', { result, lengthRatio, textRatio, regexList });
+        }
         return { result, lengthRatio, textRatio, regexList };
     } catch (ex) {
         console.log("============> components => fuzzer => grepMatch => commonFuzz => exception: ", ex);

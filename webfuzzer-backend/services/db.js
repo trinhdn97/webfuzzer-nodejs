@@ -41,6 +41,10 @@ function createDataResponseObject(error, results) {
     }
 }
 
+function escape(str) {
+    return mySql.escape(str);
+}
+
 // -------------------------------------------------------------------------------------------------------------
 
 class Transaction {
@@ -95,5 +99,6 @@ module.exports = {
     query,
     execute,
     createDataResponseObject,
+    escape,
     Transaction,
 }

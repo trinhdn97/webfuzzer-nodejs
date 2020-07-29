@@ -21,6 +21,9 @@ import {
 import { response } from './components/common/index';
 import { color } from './components/constant/index';
 import { convertQuestionMark } from './components/common/index';
+
+let swaggerUi = require('swagger-ui-express'),
+    swaggerDocument = require('./swagger.json');
 // const cluster = require('cluster');
 // const numCPUs = require('os').cpus().length;
 const globalConfig = require("./globalConfig");
@@ -59,11 +62,11 @@ app.use((error, req, res, next) => {
     if (error instanceof SyntaxError) {
         // console.log('SyntaxError');
         // TODO: fix this for correctly routing
-        // console.log(req.url);
-        // if (req.url !== '/fuzz/quick') burpMethods.receiveTargetFromBurp(req, res, error.body);
-        // else fuzzMethods.fuzzWithoutDatabase(req, res, error.body);
+        console.log(req.url);
+        if (req.url !== '/fuzz/quick') burpMethods.receiveTargetFromBurp(req, res, error.body);
+        else fuzzMethods.fuzzWithoutDatabase(req, res, error.body);
         // burpMethods.receiveTargetFromBurp(req, res, error.body);
-        fuzzMethods.fuzzWithoutDatabase(req, res, error.body);
+        // fuzzMethods.fuzzWithoutDatabase(req, res, error.body);
     } else if (error instanceof Error) {
         console.log('Error at body-parser:', error);
     }
@@ -93,6 +96,9 @@ app.use('/fuzz', fuzzRoute(express.Router(), app, fuzzMethods));
 var reconMethods = new reconController(reconSer, response);
 app.use('/recon', reconRoute(express.Router(), app, reconMethods));
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// app.use('/api/v1', router);
+
 // Global variables manipulation
 // -----------------------------------------------------------------------------
 let requestQueue = [], isFuzzing = false;
@@ -105,6 +111,8 @@ let autoFuzz = globalConfig.autoFuzz;
 let autoExecuteQueuedRequest = globalConfig.autoExecuteQueuedRequest;
 let db = globalConfig.db;
 let csv = globalConfig.csv;
+let encodeUrl = globalConfig.encodeUrl;
+let verbose = globalConfig.verbose;
 export {
     requestQueue,
     isFuzzing,
@@ -116,7 +124,9 @@ export {
     autoFuzz,
     autoExecuteQueuedRequest,
     db,
-    csv
+    csv,
+    encodeUrl,
+    verbose
 }
 
 // Start server

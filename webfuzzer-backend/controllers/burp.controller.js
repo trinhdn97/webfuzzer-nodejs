@@ -1,5 +1,6 @@
 import { isEmptyObject, escapeTarget, convertQuestionMark } from '../components/common/index';
 const request = require('request-promise-native');
+const globalConfig = require("../globalConfig");
 let burpService, response;
 
 export default class burpController {
@@ -26,7 +27,7 @@ export default class burpController {
             // let newBody = isEmptyObject(req.body) ? baseReq : req.body;
             // const options = {
             //     method: 'post',
-            //     url: 'http://0.0.0.0:13337/fuzz/quick',
+            //     url: `http://0.0.0.0:${globalConfig.SERVICE_PORT}/fuzz/quick`,
             //     body: newBody,
             //     json: true
             // }
@@ -39,11 +40,12 @@ export default class burpController {
         }
     }
 
-    async testHTMLRender(req, res) {
+    async getAllEndpoint(req, res) {
         try {
-            res.render('../HTMLResponse.html');
+            let result = await burpService.getAllEndpoint(req.query.limit, req.query.offset);
+            return response(res, result);
         } catch (ex) {
-            console.log("============> burpController => testHTMLRender => exception: ", ex);
+            console.log("============> burpController => getAllEndpoint => exception: ", ex);
             return response(res, null, ex);
         }
     }

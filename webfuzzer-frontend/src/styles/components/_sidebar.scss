@@ -6,7 +6,8 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -$cr-sidebar-width;
+  left: 0;
+  
   z-index: 5;
   width: $cr-sidebar-width;
   font-weight: 200;
@@ -31,16 +32,12 @@
     content: '';
   }
 
-  &::before {
-    background: #000;
-    opacity: 0.33;
-  }
+ 
 
   &::after {
     z-index: 3;
     // sublime light
-    background: #fc5c7d; /* fallback for old browsers */
-    background: linear-gradient(to bottom, #6a82fb, #fc5c7d);
+    background: #1e1e41;
     opacity: 1;
   }
 
@@ -105,7 +102,6 @@
     margin-top: 20px;
 
     .nav-item {
-      margin: 5px 10px;
       color: theme-color(light);
       border-radius: 4px;
       opacity: 0.86;

@@ -1,6 +1,6 @@
 var burpRoute = (router, expressApp, burpMethods) => {
     router.post('/', burpMethods.receiveTargetFromBurp);
-    // router.get('/', burpMethods.testHTMLRender);
+    router.get('/', burpMethods.getAllEndpoint);
     return router;
 }
 

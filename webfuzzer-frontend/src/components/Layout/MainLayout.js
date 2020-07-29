@@ -1,14 +1,16 @@
-import { Content, Footer, Header, Sidebar } from 'components/Layout';
+import { Content,Sidebar } from 'components/Layout';
 import React from 'react';
 import {
   MdImportantDevices,
   // MdCardGiftcard,
-  MdLoyalty,
 } from 'react-icons/md';
 import NotificationSystem from 'react-notification-system';
 import { NOTIFICATION_SYSTEM_STYLE } from 'utils/constants';
 
 class MainLayout extends React.Component {
+  state={
+    isOpenSideBarMobile:true
+  }
   static isSidebarOpen() {
     return document
       .querySelector('.cr-sidebar')
@@ -29,25 +31,15 @@ class MainLayout extends React.Component {
         return;
       }
 
-      this.notificationSystem.addNotification({
-        title: <MdImportantDevices />,
-        message: 'Welome to Reduction Admin!',
-        level: 'info',
-      });
+      // this.notificationSystem.addNotification({
+      //   title: <MdImportantDevices />,
+      //   message: 'Welome to web fuzzer system!',
+      //   level: 'info',
+      //   position:'tc'
+      // });
     }, 1500);
 
-    setTimeout(() => {
-      if (!this.notificationSystem) {
-        return;
-      }
 
-      this.notificationSystem.addNotification({
-        title: <MdLoyalty />,
-        message:
-          'Reduction is carefully designed template powered by React and Bootstrap4!',
-        level: 'info',
-      });
-    }, 2500);
   }
 
   // close sidebar when
@@ -85,16 +77,24 @@ class MainLayout extends React.Component {
     }
     document.querySelector('.cr-sidebar').classList.remove('cr-sidebar--open');
   }
-
+  toggleSideBarOnMobile = () => {
+    this.setState({
+      isOpenSideBarMobile:!this.state.isOpenSideBarMobile
+    })
+  }
   render() {
     const { children } = this.props;
     return (
       <main className="cr-app bg-light">
-        <Sidebar />
+        <div onClick={()=>this.toggleSideBarOnMobile()} className="icon-menu">
+          {this.state.isOpenSideBarMobile? <i className="fa fa-times" aria-hidden="true"></i>:<i className="fa fa-bars" aria-hidden="true"></i>}
+         
+        </div>
+        <Sidebar
+          isOpenSideBarMobile={this.state.isOpenSideBarMobile}
+         />
         <Content fluid onClick={this.handleContentClick}>
-          <Header />
           {children}
-          <Footer />
         </Content>
 
         <NotificationSystem

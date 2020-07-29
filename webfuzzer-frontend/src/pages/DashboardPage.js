@@ -1,407 +1,320 @@
-import { AnnouncementCard, TodosCard } from 'components/Card';
-import HorizontalAvatarList from 'components/HorizontalAvatarList';
-import MapWithBubbles from 'components/MapWithBubbles';
+
 import Page from 'components/Page';
-import ProductMedia from 'components/ProductMedia';
-import SupportTicket from 'components/SupportTicket';
-import UserProgressTable from 'components/UserProgressTable';
-import { IconWidget, NumberWidget } from 'components/Widget';
-import { getStackLineChart, stackLineChartOptions } from 'demos/chartjs';
-import {
-  avatarsData,
-  chartjs,
-  productsData,
-  supportTicketsData,
-  todosData,
-  userProgressTableData,
-} from 'demos/dashboardPage';
 import React from 'react';
-import { Bar, Line } from 'react-chartjs-2';
+import EndpointsComponent from 'components/Dashboard/EnpointsComponent'
+import BaseRequestComponent from 'components/Dashboard/BaseRequestComponent'
+import ListVulnes from 'components/Dashboard/ListVulnesComponent'
+import AwaitingComponent from 'components/AwaitingComponent'
 import {
-  MdBubbleChart,
-  MdInsertChart,
-  MdPersonPin,
-  MdPieChart,
-  MdRateReview,
-  MdShare,
-  MdShowChart,
-  MdThumbUp,
-} from 'react-icons/md';
-import InfiniteCalendar from 'react-infinite-calendar';
-import {
-  Badge,
-  Button,
-  Card,
-  CardBody,
-  CardDeck,
-  CardGroup,
-  CardHeader,
-  CardTitle,
   Col,
-  ListGroup,
-  ListGroupItem,
   Row,
 } from 'reactstrap';
-import { getColor } from 'utils/colors';
-
-const today = new Date();
-const lastWeek = new Date(
-  today.getFullYear(),
-  today.getMonth(),
-  today.getDate() - 7,
-);
-
+import endpoints from '../endpoints'
+import callApi from '../apiCaller'
+import NotificationSystem from 'react-notification-system';
+import { NOTIFICATION_SYSTEM_STYLE } from 'utils/constants';
 class DashboardPage extends React.Component {
-  componentDidMount() {
-    // this is needed, because InfiniteCalendar forces window scroll
-    window.scrollTo(0, 0);
+  constructor(props) {
+    super(props);
+    this.state = {
+      endpointsList: [],
+      vulneTypes: [
+
+
+      ],
+      enpointSelected: {},
+      loading: false,
+      loadingSubmit: false,
+      checkedAllAutoFuzz: false,
+      totalRecord: 0
+
+    };
+  }
+  componentDidMount = async () => {
+    let apiList = [this.getListEndpoints(), this.getVulneTypes()]
+    let [
+      res1,
+      res2
+    ] = await Promise.all(apiList);
+  }
+  getListEndpoints = async (limit = 5, offset = 0) => {
+    try {
+      this.setState({
+        loading: true,
+        enpointSelected: {}
+      })
+      let endpointList = await callApi(endpoints.getAllEndpoinst(limit, offset), 'get', null)
+      if (endpointList && endpointList.results) {
+        let list = endpointList.results.endpointList
+        console.log(list, 'list')
+
+        this.setState({
+          endpointsList: list,
+          totalRecord: endpointList.results.total
+        })
+        setTimeout(() => {
+          this.setState({
+            loading: false
+          })
+        }, 1000)
+        // this.selectEndpoint(this.state.endpointsList[0])
+      }
+
+
+    }
+    catch (err) {
+      this.setState({
+        loading: false
+      })
+      console.log(err)
+    }
+  }
+  selectEndpoint = (endpoint) => {
+    if (!this.state.enpointSelected.Id) {
+      this.setState({
+        enpointSelected: { ...endpoint }
+      })
+    } else {
+      if (this.state.enpointSelected.Id !== endpoint.Id) {
+        this.setState({
+          enpointSelected: { ...endpoint }
+        })
+      }
+    }
+  }
+  selectVulne = (item) => {
+    if (item.check && item.id !== 6) {
+      this.setState({
+        checkedAllAutoFuzz: false
+      })
+    }
+    let { vulneTypes } = this.state;
+    vulneTypes.map((ele) => {
+      if (ele.id === item.id) {
+        ele.check = !ele.check
+      }
+      return ele
+    })
+    this.setState({
+      vulneTypes: vulneTypes
+    })
+    let isCheckAllAuto = this.verifyCheckAllAuto(this.state.vulneTypes)
+    let listFilter = this.state.vulneTypes.filter(ele => ele.type === 'auto')
+    if (isCheckAllAuto === listFilter.length) {
+      this.setState({
+        checkedAllAutoFuzz: true
+      })
+    }
+  }
+  getVulneTypes = async () => {
+    try {
+      let { results } = await callApi(endpoints.getListVulnes, 'get', null)
+      let arr = []
+      if (results) {
+        Object.keys(results).forEach((key, idx) => {
+          console.log(key, '##key')
+          let vulne = {
+            id: String(key),
+            label: results[key].label,
+            check: false,
+            type: key === '6' ? 'common' : 'auto'
+          }
+          arr.push(vulne)
+        })
+      }
+      this.setState({
+        vulneTypes: [...arr]
+      })
+      console.log(arr, '##arr')
+
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  verifyCheckAllAuto(list) {
+    if (!list || !list.length > 0) {
+      return 0
+    }
+    let listFilter = list.filter(ele => ele.type === 'auto')
+    let sum = 0;
+    for (let i = 0; i < listFilter.length; i++) {
+      if (listFilter[i].check) {
+        sum++
+      }
+    }
+    return sum
+  }
+  toogleAllAutoFuzz = () => {
+    let vulneTypes = [...this.state.vulneTypes];
+    let listFilter = this.state.vulneTypes.filter(ele => ele.type === 'auto')
+    for (let i = 0; i < listFilter.length; i++) {
+      if (!this.state.checkedAllAutoFuzz) {
+        listFilter[i].check = true
+
+      } else {
+        listFilter[i].check = false
+      }
+      vulneTypes[i] = { ...listFilter[i] }
+    }
+
+    this.setState({
+      vulneTypes: vulneTypes,
+      checkedAllAutoFuzz: !this.state.checkedAllAutoFuzz
+    })
   }
 
+  submitFuzzRequest = async () => {
+    try {
+      if (!this.state.enpointSelected.Id) {
+        return;
+      } else {
+        this.setState({
+          loadingSubmit: true
+        })
+        let vulneTypes = this.getSelectedVulneTypes()
+        let vulnTypes = {
+          vulnTypes: vulneTypes
+        }
+        vulnTypes = JSON.stringify(vulnTypes)
+        console.log(vulnTypes, '##vulType')
+        let params = {
+          targetId: this.state.enpointSelected.Id,
+          vulnTypes: vulnTypes
+        }
+        let { results } = await callApi(endpoints.createFuzzRequest, 'post', params)
+        if (results && results.requestId) {
+          setTimeout(() => {
+            this.setState({
+              enpointSelected: {},
+              loadingSubmit: false
+            })
+            this.unCheckAllVulnTypes()
+            if (!this.notificationSystem) {
+              return;
+            }
+
+            this.notificationSystem.addNotification({
+              message: 'Send fuzz request successfully',
+              level: 'success',
+              position: 'tc'
+            });
+          }, 1500)
+        } else {
+          setTimeout(() => {
+            this.setState({
+              enpointSelected: {},
+              loadingSubmit: false
+            })
+            this.unCheckAllVulnTypes()
+            if (!this.notificationSystem) {
+              return;
+            }
+
+            this.notificationSystem.addNotification({
+              message: 'Some things went wrong',
+              level: 'error',
+              position: 'tc'
+            });
+          }, 1500)
+        }
+
+
+
+      }
+    } catch (err) {
+      console.log(err)
+      setTimeout(() => {
+        this.setState({
+          enpointSelected: {},
+          loadingSubmit: false
+        })
+        this.unCheckAllVulnTypes()
+        if (!this.notificationSystem) {
+          return;
+        }
+
+        this.notificationSystem.addNotification({
+          message: 'Some things went wrong',
+          level: 'error',
+          position: 'tc'
+        });
+      }, 1500)
+    }
+  }
+  getSelectedVulneTypes = () => {
+    let vulTypes = [...this.state.vulneTypes];
+    let result = [];
+    for (let i = 0; i < vulTypes.length; i++) {
+      if (vulTypes[i].check) {
+        result.push(vulTypes[i].id)
+      }
+    }
+    return result
+  }
+  unCheckAllVulnTypes = () => {
+    let vulTypes = [...this.state.vulneTypes];
+    for (let i = 0; i < vulTypes.length; i++) {
+      vulTypes[i].check = false
+    }
+    this.setState({
+      vulneTypes: vulTypes,
+      checkedAllAutoFuzz: false
+    })
+  }
   render() {
-    const primaryColor = getColor('primary');
-    const secondaryColor = getColor('secondary');
 
     return (
       <Page
         className="DashboardPage"
         title="Dashboard"
-        breadcrumbs={[{ name: 'Dashboard', active: true }]}
       >
-        <Row>
-          <Col lg={3} md={6} sm={6} xs={12}>
-            <NumberWidget
-              title="Total Profit"
-              subtitle="This month"
-              number="9.8k"
-              color="secondary"
-              progress={{
-                value: 75,
-                label: 'Last month',
-              }}
-            />
-          </Col>
-
-          <Col lg={3} md={6} sm={6} xs={12}>
-            <NumberWidget
-              title="Monthly Visitors"
-              subtitle="This month"
-              number="5,400"
-              color="secondary"
-              progress={{
-                value: 45,
-                label: 'Last month',
-              }}
-            />
-          </Col>
-
-          <Col lg={3} md={6} sm={6} xs={12}>
-            <NumberWidget
-              title="New Users"
-              subtitle="This month"
-              number="3,400"
-              color="secondary"
-              progress={{
-                value: 90,
-                label: 'Last month',
-              }}
-            />
-          </Col>
-
-          <Col lg={3} md={6} sm={6} xs={12}>
-            <NumberWidget
-              title="Bounce Rate"
-              subtitle="This month"
-              number="38%"
-              color="secondary"
-              progress={{
-                value: 60,
-                label: 'Last month',
-              }}
-            />
-          </Col>
-        </Row>
 
         <Row>
-          <Col lg="8" md="12" sm="12" xs="12">
-            <Card>
-              <CardHeader>
-                Total Revenue{' '}
-                <small className="text-muted text-capitalize">This year</small>
-              </CardHeader>
-              <CardBody>
-                <Line data={chartjs.line.data} options={chartjs.line.options} />
-              </CardBody>
-            </Card>
-          </Col>
-
-          <Col lg="4" md="12" sm="12" xs="12">
-            <Card>
-              <CardHeader>Total Expense</CardHeader>
-              <CardBody>
-                <Bar data={chartjs.bar.data} options={chartjs.bar.options} />
-              </CardBody>
-              <ListGroup flush>
-                <ListGroupItem>
-                  <MdInsertChart size={25} color={primaryColor} /> Cost of sales{' '}
-                  <Badge color="secondary">$3000</Badge>
-                </ListGroupItem>
-                <ListGroupItem>
-                  <MdBubbleChart size={25} color={primaryColor} /> Management
-                  costs <Badge color="secondary">$1200</Badge>
-                </ListGroupItem>
-                <ListGroupItem>
-                  <MdShowChart size={25} color={primaryColor} /> Financial costs{' '}
-                  <Badge color="secondary">$800</Badge>
-                </ListGroupItem>
-                <ListGroupItem>
-                  <MdPieChart size={25} color={primaryColor} /> Other operating
-                  costs <Badge color="secondary">$2400</Badge>
-                </ListGroupItem>
-              </ListGroup>
-            </Card>
-          </Col>
-        </Row>
-
-        <CardGroup style={{ marginBottom: '1rem' }}>
-          <IconWidget
-            bgColor="white"
-            inverse={false}
-            icon={MdThumbUp}
-            title="50+ Likes"
-            subtitle="People you like"
-          />
-          <IconWidget
-            bgColor="white"
-            inverse={false}
-            icon={MdRateReview}
-            title="10+ Reviews"
-            subtitle="New Reviews"
-          />
-          <IconWidget
-            bgColor="white"
-            inverse={false}
-            icon={MdShare}
-            title="30+ Shares"
-            subtitle="New Shares"
-          />
-        </CardGroup>
-
-        <Row>
-          <Col md="6" sm="12" xs="12">
-            <Card>
-              <CardHeader>New Products</CardHeader>
-              <CardBody>
-                {productsData.map(
-                  ({ id, image, title, description, right }) => (
-                    <ProductMedia
-                      key={id}
-                      image={image}
-                      title={title}
-                      description={description}
-                      right={right}
-                    />
-                  ),
-                )}
-              </CardBody>
-            </Card>
-          </Col>
-
-          <Col md="6" sm="12" xs="12">
-            <Card>
-              <CardHeader>New Users</CardHeader>
-              <CardBody>
-                <UserProgressTable
-                  headers={[
-                    <MdPersonPin size={25} />,
-                    'name',
-                    'date',
-                    'participation',
-                    '%',
-                  ]}
-                  usersData={userProgressTableData}
-                />
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col lg={4} md={4} sm={12} xs={12}>
-            <Card>
-              <Line
-                data={getStackLineChart({
-                  labels: [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                  ],
-                  data: [0, 13000, 5000, 24000, 16000, 25000, 10000],
-                })}
-                options={stackLineChartOptions}
-              />
-              <CardBody
-                className="text-primary"
-                style={{ position: 'absolute' }}
-              >
-                <CardTitle>
-                  <MdInsertChart /> Sales
-                </CardTitle>
-              </CardBody>
-            </Card>
-          </Col>
-
-          <Col lg={4} md={4} sm={12} xs={12}>
-            <Card>
-              <Line
-                data={getStackLineChart({
-                  labels: [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                  ],
-                  data: [10000, 15000, 5000, 10000, 5000, 10000, 10000],
-                })}
-                options={stackLineChartOptions}
-              />
-              <CardBody
-                className="text-primary"
-                style={{ position: 'absolute' }}
-              >
-                <CardTitle>
-                  <MdInsertChart /> Revenue
-                </CardTitle>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg={4} md={4} sm={12} xs={12}>
-            <Card>
-              <Line
-                data={getStackLineChart({
-                  labels: [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                  ],
-                  data: [0, 13000, 5000, 24000, 16000, 25000, 10000].reverse(),
-                })}
-                options={stackLineChartOptions}
-              />
-              <CardBody
-                className="text-primary"
-                style={{ position: 'absolute', right: 0 }}
-              >
-                <CardTitle>
-                  <MdInsertChart /> Profit
-                </CardTitle>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col lg="4" md="12" sm="12" xs="12">
-            <InfiniteCalendar
-              selected={today}
-              minDate={lastWeek}
-              width="100%"
-              theme={{
-                accentColor: primaryColor,
-                floatingNav: {
-                  background: secondaryColor,
-                  chevron: primaryColor,
-                  color: '#FFF',
-                },
-                headerColor: primaryColor,
-                selectionColor: secondaryColor,
-                textColor: {
-                  active: '#FFF',
-                  default: '#333',
-                },
-                todayColor: secondaryColor,
-                weekdayColor: primaryColor,
-              }}
+          <Col lg="4">
+            <EndpointsComponent
+              endpointsList={this.state.endpointsList}
+              selectEndpoint={this.selectEndpoint}
+              enpointSelected={this.state.enpointSelected}
+              getListEndpoints={this.getListEndpoints}
+              loading={this.state.loading}
+              totalRecord={this.state.totalRecord}
             />
           </Col>
 
-          <Col lg="8" md="12" sm="12" xs="12">
-            <Card inverse className="bg-gradient-primary">
-              <CardHeader className="bg-gradient-primary">
-                Map with bubbles
-              </CardHeader>
-              <CardBody>
-                <MapWithBubbles />
-              </CardBody>
-            </Card>
+          <Col lg="8">
+            <BaseRequestComponent selectedEndpoint={this.state.enpointSelected} />
           </Col>
         </Row>
-
-        <CardDeck style={{ marginBottom: '1rem' }}>
-          <Card body style={{ overflowX: 'auto','paddingBottom':'15px','height': 'fit-content','paddingTop': 'inherit'}}>
-            <HorizontalAvatarList
-              avatars={avatarsData}
-              avatarProps={{ size: 50 }}
-            />
-          </Card>
-
-          <Card body style={{ overflowX: 'auto','paddingBottom':'15px','height': 'fit-content','paddingTop': 'inherit'}}>
-            <HorizontalAvatarList
-              avatars={avatarsData}
-              avatarProps={{ size: 50 }}
-              reversed
-            />
-          </Card>
-        </CardDeck>
-
         <Row>
-          <Col lg="4" md="12" sm="12" xs="12">
-            <AnnouncementCard
-              color="gradient-secondary"
-              header="Announcement"
-              avatarSize={60}
-              name="Jamy"
-              date="1 hour ago"
-              text="Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy euismod tinciduntut laoreet doloremagna"
-              buttonProps={{
-                children: 'show',
-              }}
-              style={{ height: 500 }}
+          <Col lg="4">
+            <ListVulnes
+              listVulnes={this.state.vulneTypes}
+              selectVulne={this.selectVulne}
+              checkedAllAutoFuzz={this.state.checkedAllAutoFuzz}
+              toogleAllAutoFuzz={this.toogleAllAutoFuzz}
             />
+            <div className="btn-submit">
+
+              {this.state.loadingSubmit ?
+                <AwaitingComponent /> :
+                <button
+                  disabled={!this.state.enpointSelected.Id}
+                  onClick={() => this.submitFuzzRequest()}>Create fuzz request
+              </button>}
+            </div>
           </Col>
 
-          <Col lg="4" md="12" sm="12" xs="12">
-            <Card>
-              <CardHeader>
-                <div className="d-flex justify-content-between align-items-center">
-                  <span>Support Tickets</span>
-                  <Button>
-                    <small>View All</small>
-                  </Button>
-                </div>
-              </CardHeader>
-              <CardBody>
-                {supportTicketsData.map(supportTicket => (
-                  <SupportTicket key={supportTicket.id} {...supportTicket} />
-                ))}
-              </CardBody>
-            </Card>
-          </Col>
+          <Col lg="8">
 
-          <Col lg="4" md="12" sm="12" xs="12">
-            <TodosCard todos={todosData} />
           </Col>
         </Row>
+        <NotificationSystem
+          dismissible={false}
+          ref={notificationSystem =>
+            (this.notificationSystem = notificationSystem)
+          }
+          style={NOTIFICATION_SYSTEM_STYLE}
+        />
       </Page>
     );
   }

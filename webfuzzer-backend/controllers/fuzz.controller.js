@@ -49,4 +49,15 @@ export default class fuzzController {
             return response(res, null, ex);
         }
     }
+
+    async executeSubmittedRequest(req, res) {
+        try {
+            console.log('[fuzzController] executeSubmittedRequest...');
+            let result = await fuzzService.executeSubmittedRequest();
+            return response(res, result);
+        } catch (ex) {
+            console.log("============> fuzzController => executeSubmittedRequest => exception: ", ex);
+            return response(res, null, ex);
+        }
+    }
 }

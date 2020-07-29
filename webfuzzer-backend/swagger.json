@@ -1,0 +1,513 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Webfuzzer Nodejs API",
+    "description": "",
+    "license": {
+      "name": "HCMUT",
+      "url": "https://www.hcmut.edu.vn/vi"
+    }
+  },
+  "host": "61.28.235.183:13336",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Burp Suite",
+      "description": "API related to Burp Suite extension and endpoints management"
+    },
+    {
+      "name": "Target",
+      "description": "API for fuzz requests/results in the system"
+    },
+    {
+      "name": "Fuzz",
+      "description": "API for execute fuzz requests in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": [
+          "Burp Suite"
+        ],
+        "summary": "Send base request and save to database",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "type": "object",
+            "description": "Base request that we want to save",
+            "schema": {
+              "$ref": "#/definitions/BaseRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New base request is saved to database",
+            "schema": {
+              "$ref": "#/definitions/EndpointResponse"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Burp Suite"
+        ],
+        "summary": "Get a number of base requests from database",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "description": "Maximum number of base requests you want to get, descending sorted by id"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer",
+            "description": "Offset"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Some base requests",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Endpoint"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/target": {
+      "post": {
+        "tags": [
+          "Target"
+        ],
+        "summary": "Create fuzz request",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "type": "object",
+            "description": "Endpoint id and vulnerability types we want to fuzz",
+            "schema": {
+              "$ref": "#/definitions/CreateFuzzRequestInfo"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New fuzz request is saved to database",
+            "schema": {
+              "$ref": "#/definitions/CreateFuzzRequestResponse"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Target"
+        ],
+        "summary": "Retrieve fuzz request info",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "query",
+            "type": "integer",
+            "description": "Id of the fuzz request we want to retrieve"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Fuzz request info",
+            "schema": {
+              "$ref": "#/definitions/Request"
+            }
+          }
+        }
+      }
+    },
+    "/target/list": {
+      "get": {
+        "tags": [
+          "Target"
+        ],
+        "summary": "Get list of fuzz requests info",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string",
+            "description": "Can be 'vuln' for vulnerable fuzz request results or 'all' for all requests"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "description": "Maximum number of fuzz requests you want to get, descending sorted by id"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer",
+            "description": "Offset"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of fuzz requests info",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Request"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/target/configs": {
+      "get": {
+        "tags": [
+          "Target"
+        ],
+        "summary": "Get list of fuzz requests configs",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of fuzz requests configs",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FuzzObject"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/target/search": {
+      "get": {
+        "tags": [
+          "Target"
+        ],
+        "summary": "Execute one remaining submitted fuzz request",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "type": "string",
+            "description": "Partial search string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer",
+            "description": "Maximum number of fuzz requests you want to get, descending sorted by id"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer",
+            "description": "Offset"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of result requests",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Request"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fuzz": {
+      "get": {
+        "tags": [
+          "Fuzz"
+        ],
+        "summary": "Execute fuzz request",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "query",
+            "type": "integer",
+            "description": "Id of the fuzz request we want to execute"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Fuzz request is being executed!"
+          },
+          "400": {
+            "description": "Fuzz request has already been executed!"
+          }
+        }
+      }
+    },
+    "/fuzz/free-request": {
+      "get": {
+        "tags": [
+          "Fuzz"
+        ],
+        "summary": "Execute one remaining submitted fuzz request",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return the id of executing request",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/CreateFuzzRequestResponse"
+              }
+            }
+          },
+          "400": {
+            "description": "Nothing to execute"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Endpoint": {
+      "required": [
+        "Id",
+        "Hash"
+      ],
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "uniqueItems": true,
+          "example": 9
+        },
+        "Url": {
+          "type": "string",
+          "example": "http://testphp.vulnweb.com:80/search.php?test=query"
+        },
+        "BaseRequest": {
+          "type": "object",
+          "example": {
+            "url": "http://testphp.vulnweb.com:80/showimage.php?file=\\xa7./pictures/1.jpg\\xa7",
+            "cookies": "",
+            "headers": {
+              "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:74.0) Gecko/20100101 Firefox/74.0",
+              "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+              "Accept-Language": "en-US,en;q=0.5",
+              "Accept-Encoding": "gzip, deflate",
+              "DNT": "1",
+              "Connection": "close",
+              "Upgrade-Insecure-Requests": "1"
+            },
+            "method": "get"
+          }
+        },
+        "Hash": {
+          "type": "string",
+          "uniqueItems": true,
+          "example": "378bbb99a39392ad924432e812cb496bd9ebefddc44bfe8acae573287e191f4a"
+        }
+      }
+    },
+    "Request": {
+      "required": [
+        "IdRequest"
+      ],
+      "properties": {
+        "IdRequest": {
+          "type": "integer",
+          "uniqueItems": true,
+          "example": 9
+        },
+        "IdEndpoint": {
+          "type": "integer",
+          "example": 11
+        },
+        "IdResult": {
+          "type": "integer",
+          "example": 8
+        },
+        "RequestTimestamp": {
+          "type": "date",
+          "example": "2020-01-21T08:02:32.000Z"
+        },
+        "VulnTypes": {
+          "type": "object",
+          "example": {
+            "vulnTypes": [
+              "0"
+            ]
+          }
+        },
+        "Strategy": {
+          "type": "string",
+          "example": "sniper"
+        },
+        "Config": {
+          "type": "object",
+          "example": null
+        },
+        "Status": {
+          "type": "string",
+          "example": "Submitted"
+        },
+        "BaseRequest": {
+          "type": "object",
+          "example": {
+            "url": "http://testphp.vulnweb.com:80/showimage.php?file=\\xa7./pictures/1.jpg\\xa7",
+            "cookies": "",
+            "headers": {
+              "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:74.0) Gecko/20100101 Firefox/74.0",
+              "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+              "Accept-Language": "en-US,en;q=0.5",
+              "Accept-Encoding": "gzip, deflate",
+              "DNT": "1",
+              "Connection": "close",
+              "Upgrade-Insecure-Requests": "1"
+            },
+            "method": "get"
+          }
+        },
+        "Result": {
+          "type": "object",
+          "example": {
+            "1": [
+              {
+                "payload": "../..//etc/passwd",
+                "payloadIdx": "0",
+                "timebased": false,
+                "matchList": [
+                  "root:x"
+                ]
+              }
+            ]
+          }
+        },
+        "ResultTimestamp": {
+          "type": "date",
+          "example": "2020-01-21T08:02:32.000Z"
+        }
+      }
+    },
+    "BaseRequest": {
+      "required": [
+        "burp",
+        "python"
+      ],
+      "properties": {
+        "burp": {
+          "type": "string"
+        },
+        "python": {
+          "type": "string"
+        }
+      }
+    },
+    "EndpointResponse": {
+      "required": [
+        "endpointId"
+      ],
+      "properties": {
+        "endpointId": {
+          "type": "integer",
+          "example": 9
+        }
+      }
+    },
+    "CreateFuzzRequestInfo": {
+      "required": [
+        "targetId"
+      ],
+      "properties": {
+        "targetId": {
+          "type": "integer",
+          "example": 1
+        },
+        "vulnTypes": {
+          "type": "string",
+          "example": {
+            "vulnTypes": [
+              "1"
+            ]
+          }
+        }
+      }
+    },
+    "CreateFuzzRequestResponse": {
+      "required": [
+        "requestId"
+      ],
+      "properties": {
+        "requestId": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    },
+    "FuzzConfig": {
+      "required": [
+        "0"
+      ],
+      "properties": {
+        "requestId": {
+          "type": "object",
+          "example": {
+            "label": "Cross-site Scripting",
+            "time": "",
+            "match": [
+              "y4t0g4m1",
+              "XSS"
+            ],
+            "payloadFile": "xss/xss-polyglots.txt",
+            "matchFile": "",
+            "OOB": "<IP> or <HOSTS>"
+          }
+        }
+      }
+    }
+  }
+}

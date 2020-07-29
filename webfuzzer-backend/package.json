@@ -24,6 +24,7 @@
     "request-promise": "^4.2.5",
     "request-promise-native": "^1.0.8",
     "stream-to-array": "^2.3.0",
+    "swagger-ui-express": "^4.1.4",
     "workerpool": "^5.0.4"
   },
   "devDependencies": {

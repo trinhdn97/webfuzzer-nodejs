@@ -50,10 +50,34 @@ export default class targetController {
     async getRequestList(req, res) {
         try {
             console.log('[targetController] getRequestList...');
-            let result = await targetService.getRequestList(req.query.type);
+            let result = await targetService.getRequestList(req.query.type, req.query.limit, req.query.offset);
             return response(res, result);
         } catch (ex) {
             console.log("============> targetController => getRequestList => exception: ", ex);
+            return response(res, null, ex);
+        }
+    }
+
+    async getVulnTypes(req, res) {
+        try {
+            console.log('[targetController] getVulnTypes...');
+            let result = await targetService.getVulnTypes();
+            return response(res, result);
+        }
+        catch (ex) {
+            console.log("============> targetController => getVulnTypes => exception: ", ex);
+            return response(res, null, ex);
+        }
+    }
+
+    async searchUrl(req, res) {
+        try {
+            console.log('[targetController] searchUrl...', req.query.url);
+            let result = await targetService.searchUrl(req.query.url, req.query.limit, req.query.offset);
+            return response(res, result);
+        }
+        catch (ex) {
+            console.log("============> targetController => searchUrl => exception: ", ex);
             return response(res, null, ex);
         }
     }

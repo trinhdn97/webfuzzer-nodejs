@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Pagination from "react-js-pagination";
-export class EnpointsComponent extends Component {
+export class EndpointsComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,7 +31,7 @@ export class EnpointsComponent extends Component {
         this.props.getListEndpoints(this.state.limit, 0)
     }
     render() {
-        let { endpointsList, enpointSelected, getListEndpoints, loading, totalRecord } = this.props
+        let { endpointsList, endpointSelected, getListEndpoints, loading, totalRecord } = this.props
         return (
             <div className="endpoints">
                 <div className="endpoints__title">
@@ -44,11 +44,11 @@ export class EnpointsComponent extends Component {
                         {endpointsList ? endpointsList.map((ele) => (
                             <div
                                 onClick={() => this.onSelectEndpoint(ele)}
-                                className={enpointSelected.Id === ele.Id ? 'endpoints__content-item endpoints__content-item-active' : 'endpoints__content-item'}
+                                className={endpointSelected.Id === ele.Id ? 'endpoints__content-item endpoints__content-item-active' : 'endpoints__content-item'}
                                 key={ele.Id}
                             >
 
-                                <span>{ele.Url} {enpointSelected.Id === ele.Id ? <i className="fa fa-check" aria-hidden="true"></i> : null}</span>
+                                <span>{ele.Url} {endpointSelected.Id === ele.Id ? <i className="fa fa-check" aria-hidden="true"></i> : null}</span>
                             </div>
                         )) : null}
                         <div className="paging-table">
@@ -73,4 +73,4 @@ export class EnpointsComponent extends Component {
     }
 }
 
-export default EnpointsComponent
+export default EndpointsComponent

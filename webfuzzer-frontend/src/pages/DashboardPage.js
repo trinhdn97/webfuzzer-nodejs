@@ -1,7 +1,7 @@
 
 import Page from 'components/Page';
 import React from 'react';
-import EndpointsComponent from 'components/Dashboard/EnpointsComponent'
+import EndpointsComponent from 'components/Dashboard/EndpointsComponent'
 import BaseRequestComponent from 'components/Dashboard/BaseRequestComponent'
 import ListVulnes from 'components/Dashboard/ListVulnesComponent'
 import AwaitingComponent from 'components/AwaitingComponent'
@@ -22,7 +22,7 @@ class DashboardPage extends React.Component {
 
 
       ],
-      enpointSelected: {},
+      endpointSelected: {},
       loading: false,
       loadingSubmit: false,
       checkedAllAutoFuzz: false,
@@ -41,7 +41,7 @@ class DashboardPage extends React.Component {
     try {
       this.setState({
         loading: true,
-        enpointSelected: {}
+        endpointSelected: {}
       })
       let endpointList = await callApi(endpoints.getAllEndpoinst(limit, offset), 'get', null)
       if (endpointList && endpointList.results) {
@@ -70,14 +70,14 @@ class DashboardPage extends React.Component {
     }
   }
   selectEndpoint = (endpoint) => {
-    if (!this.state.enpointSelected.Id) {
+    if (!this.state.endpointSelected.Id) {
       this.setState({
-        enpointSelected: { ...endpoint }
+        endpointSelected: { ...endpoint }
       })
     } else {
-      if (this.state.enpointSelected.Id !== endpoint.Id) {
+      if (this.state.endpointSelected.Id !== endpoint.Id) {
         this.setState({
-          enpointSelected: { ...endpoint }
+          endpointSelected: { ...endpoint }
         })
       }
     }
@@ -165,7 +165,7 @@ class DashboardPage extends React.Component {
 
   submitFuzzRequest = async () => {
     try {
-      if (!this.state.enpointSelected.Id) {
+      if (!this.state.endpointSelected.Id) {
         return;
       } else {
         this.setState({
@@ -178,14 +178,14 @@ class DashboardPage extends React.Component {
         vulnTypes = JSON.stringify(vulnTypes)
         console.log(vulnTypes, '##vulType')
         let params = {
-          targetId: this.state.enpointSelected.Id,
+          targetId: this.state.endpointSelected.Id,
           vulnTypes: vulnTypes
         }
         let { results } = await callApi(endpoints.createFuzzRequest, 'post', params)
         if (results && results.requestId) {
           setTimeout(() => {
             this.setState({
-              enpointSelected: {},
+              endpointSelected: {},
               loadingSubmit: false
             })
             this.unCheckAllVulnTypes()
@@ -202,7 +202,7 @@ class DashboardPage extends React.Component {
         } else {
           setTimeout(() => {
             this.setState({
-              enpointSelected: {},
+              endpointSelected: {},
               loadingSubmit: false
             })
             this.unCheckAllVulnTypes()
@@ -225,7 +225,7 @@ class DashboardPage extends React.Component {
       console.log(err)
       setTimeout(() => {
         this.setState({
-          enpointSelected: {},
+          endpointSelected: {},
           loadingSubmit: false
         })
         this.unCheckAllVulnTypes()
@@ -274,7 +274,7 @@ class DashboardPage extends React.Component {
             <EndpointsComponent
               endpointsList={this.state.endpointsList}
               selectEndpoint={this.selectEndpoint}
-              enpointSelected={this.state.enpointSelected}
+              endpointSelected={this.state.endpointSelected}
               getListEndpoints={this.getListEndpoints}
               loading={this.state.loading}
               totalRecord={this.state.totalRecord}
@@ -282,7 +282,7 @@ class DashboardPage extends React.Component {
           </Col>
 
           <Col lg="8">
-            <BaseRequestComponent selectedEndpoint={this.state.enpointSelected} />
+            <BaseRequestComponent selectedEndpoint={this.state.endpointSelected} />
           </Col>
         </Row>
         <Row>
@@ -298,7 +298,7 @@ class DashboardPage extends React.Component {
               {this.state.loadingSubmit ?
                 <AwaitingComponent /> :
                 <button
-                  disabled={!this.state.enpointSelected.Id}
+                  disabled={!this.state.endpointSelected.Id}
                   onClick={() => this.submitFuzzRequest()}>Create fuzz request
               </button>}
             </div>
